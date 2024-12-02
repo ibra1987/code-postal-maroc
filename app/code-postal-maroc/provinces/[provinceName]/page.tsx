@@ -20,7 +20,7 @@ async function ParProvincePage({ params }: { params: Promise<{ provinceName: str
   const name = provinceName.toUpperCase().replaceAll("-"," ")
   const data = provinces[name] ?? provinces[provinceName] ?? provinces[provinceName.toUpperCase()]
   return (
-    <div className="w-full flex flex-col justify-start items-center gap-1  ">
+    <main className="w-full flex min-h-screen flex-col items-center justify-start px-4">
       <h1 className="w-full text-left text-4xl font-bold mb-10">
         Liste des codes postaux de la province
         <span className="text-red-500 m-2 underline">
@@ -42,7 +42,7 @@ async function ParProvincePage({ params }: { params: Promise<{ provinceName: str
           </div>
         );
       })}
-    </div>
+    </main>
   );
 }
 

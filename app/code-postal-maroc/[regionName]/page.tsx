@@ -48,7 +48,7 @@ export interface Region {
     )
   }
     return (
-      <main className="w-full flex min-h-screen flex-col items-center justify-start">
+      <main className="w-full flex min-h-screen flex-col items-center justify-start px-4">
         <h1 className="w-full text-left text-4xl font-bold">Liste des codes postaux de la region 
           <span className="text-red-500 m-2 underline">
         {regionName?.toUpperCase() }

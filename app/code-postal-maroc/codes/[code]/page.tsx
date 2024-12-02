@@ -22,7 +22,7 @@ async function ParCodePostalPage({params}:{params:Promise<{code:string}>}) {
   const codePostal = parseInt(code)
     const foundCode = Object.keys(codePostaux).find(code=>parseInt(code) === codePostal )
     if(!foundCode) {
-      return   <main className="flex min-h-screen flex-col items-center justify-start">
+      return   <main className="flex min-h-screen flex-col items-center justify-start px-4">
         Aucune resulat correspond à votre recherche (:
       </main>
     }

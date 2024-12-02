@@ -23,7 +23,7 @@ async function ParAgenceNamePage({params}:{params:Promise<{agenceName:string}>})
     const agence = Object.keys(agences).find(ag=>ag === name )
 
     if(!agence) {
-      return   <main className="flex min-h-screen flex-col items-center justify-start">
+      return   <main className="flex min-h-screen flex-col items-center justify-start px-4">
         Aucune resulat correspond à votre recherche (:
       </main>
     }

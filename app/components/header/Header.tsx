@@ -7,7 +7,7 @@ import Nav from "./Nav"
 
 const Header = () => {
   return (
-    <div className="w-full p-4 flex justify-center items-center">
+    <div className="w-full p-4 flex justify-center items-center px-4">
 
          <div className="w-full  gap-6 flex justify-between items-center mb-24">
                <Logo/>
