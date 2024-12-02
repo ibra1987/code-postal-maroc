@@ -51,11 +51,11 @@ export interface Region {
       <main className="w-full flex min-h-screen flex-col items-center justify-start">
         <h1 className="w-full text-left text-4xl font-bold">Liste des codes postaux de la region 
           <span className="text-red-500 m-2 underline">
-        {params.regionName.toUpperCase() }
+        {regionName?.toUpperCase() }
         </span></h1>
 
         <div className="w-full mt-12">
-          <h2 className="font-medium">Provinces de la region {params.regionName.toUpperCase()}</h2>
+          <h2 className="font-medium">Provinces de la region {regionName?.toUpperCase()}</h2>
           <div className="flex flex-col justify-start items-start bg-gray-100 p-4 rounded border">
             {Object.keys(provinces).map((province)=>{
               return (
