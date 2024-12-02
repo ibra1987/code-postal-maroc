@@ -3,7 +3,7 @@
 import { useActionState } from "react"
 import { sendMessage } from "../actions/sendMessage"
 
-function page() {
+function ContactPage() {
   
     const  [state ,action] =useActionState(sendMessage,undefined)
   return (
@@ -26,4 +26,4 @@ function page() {
   )
 }
 
-export default page
+export default ContactPage

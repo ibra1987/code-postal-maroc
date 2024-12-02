@@ -1,7 +1,7 @@
 "use server"
 
 import * as z from "zod"
-import nodemailer from "nodemailer"
+// import nodemailer from "nodemailer"
 const MessageSchema = z.object({
     name:z.string().min(1,{message:"Merci de fournir votre nom"}),
     email:z.string().email({message:"Merci de fournir une addresse email valide"}),

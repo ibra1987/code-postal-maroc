@@ -29,7 +29,7 @@ async function ParProvincePage({ params }: { params: Promise<{ provinceName: str
       </h1>
       {data?.map((reg: Region) => {
         return (
-          <div className=" w-full border-b">
+          <div key={data[0].NOUVEAU_CODE_POSTAL} className=" w-full border-b">
             <h3 className="w-full">
               <Link
                 className="hover:bg-red-500 hover:text-white w-full  px-2 flex justify-between rounded items-center p-2  "

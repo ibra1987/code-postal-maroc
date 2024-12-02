@@ -21,7 +21,6 @@ async function ParAgenceNamePage({params}:{params:{agenceName:string}}) {
   const { agenceName} = await params
   const name = agenceName.toUpperCase().replaceAll("-"," ")
     const agence = Object.keys(agences).find(ag=>ag === name )
-    console.log( agences[agence as keyof typeof agences][0])
 
     if(!agence) {
       return   <main className="flex min-h-screen flex-col items-center justify-start">

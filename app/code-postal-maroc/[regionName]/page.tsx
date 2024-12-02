@@ -1,8 +1,6 @@
-import fs from "fs"
 import codes  from "@/assets/codes"
 import { ChevronRight } from "lucide-react"
-import Search from "@/app/components/Search"
-import { provinces } from "@/assets/provinces"
+
 import Link from "next/link"
 
 
