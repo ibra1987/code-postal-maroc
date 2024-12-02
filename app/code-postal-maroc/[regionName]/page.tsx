@@ -15,8 +15,8 @@ export interface Region {
   // request comes in, at most once every 60 seconds.
   export const revalidate = 6
    
-  // We&apos;'ll prerender only the params from `generateStaticParams` at build time.
-  // If a request comes in for a path that hasn&apos;'t been generated,
+  // We&apos;ll prerender only the params from `generateStaticParams` at build time.
+  // If a request comes in for a path that hasn&apos;t been generated,
   // Next.js will server-render the page on-demand.
   export const dynamicParams = true // or false, to 404 on unknown paths
    

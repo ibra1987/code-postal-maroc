@@ -4,8 +4,8 @@ import { ChevronRight } from "lucide-react";
 
 export const revalidate = 6;
 
-// We&apos;'ll prerender only the params from `generateStaticParams` at build time.
-// If a request comes in for a path that hasn&apos;'t been generated,
+// We&apos;ll prerender only the params from `generateStaticParams` at build time.
+// If a request comes in for a path that hasn&apos;t been generated,
 // Next.js will server-render the page on-demand.
 export const dynamicParams = true; // or false, to 404 on unknown paths
 export async function generateStaticParams() {
@@ -30,7 +30,7 @@ async function ParAgenceNamePage({params}:{params:Promise<{agenceName:string}>})
   return (
     <main className="w-full flex min-h-screen flex-col items-center justify-start">
      <h1 className="w-full text-center text-4xl font-bold mb-10">
-        Code Postal de l&apos;'agence
+        Code Postal de l&apos;agence
         <span className="text-red-500 m-2 underline">
           {agence}
         </span>
