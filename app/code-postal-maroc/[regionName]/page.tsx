@@ -27,7 +27,7 @@ export interface Region {
     }))
   }
    
-  export default async function Page({ params }: { params: { regionName: string } }) {
+  export default async function Page({ params }: { params: Promise<{ regionName: string }> }) {
     const {regionName} = await params
  const regionsCodes: Region[] = codes.filter(
       (reg: Region) => reg.REGION_POSTALE === regionName.toUpperCase()
