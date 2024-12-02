@@ -26,19 +26,19 @@ const SearchResults = ({ data ,close}: { data: Region[] ,close:()=>void}) => {
     // Display the results if data is available
     return (
       <div className="w-screen h-screen z-10 absolute top-20 right-0  flex flex-col justify-start pt-20 items-center overflow-y-scroll px-4 ">
-        <div className="w-full lg:w-2/3 bg-white h-full p-4 rounded overflow-y-scroll  ">
+        <div className="w-full lg:w-2/3 bg-white h-full py-4 rounded overflow-y-scroll  ">
         <div className="w-full text-sm hover:cursor-pointer flex justify-end items-center">
         <CircleX className="z-50  " color="red" onClick={close}/>
          </div>
 
-          <div className="w-full grid grid-cols-4 justify-items-start p-4 bg-white text-black">
+          <div className="w-full grid grid-cols-4 justify-items-start text-white p-2 bg-red-500 ">
             <h3>région</h3>
             <h3>province</h3>
             <h3>agence</h3>
             <h3>code postal</h3>
           </div>
           {data.map((record) => (
-            <div key={record.NOUVEAU_CODE_POSTAL} className="grid grid-cols-4 text-gray-600 px-4">
+            <div key={record.NOUVEAU_CODE_POSTAL} className="grid grid-cols-4 p-2 text-sm md:text-base   text-gray-600">
               <span>{record.REGION_POSTALE}</span>
               <span>{record.PROVINCE}</span>
               <span>{record.AGENCE}</span>
