@@ -6,7 +6,7 @@ import Link from "next/link"
 
 function page() {
   return (
-    <main className="w-full flex min-h-screen flex-col items-start justify-start gap-3">
+    <main className="w-full flex min-h-screen flex-col items-center justify-start px-4">
 
 <h1 className=" font-bold text-3xl">Conditions Générales d&apos;Utilisation</h1>
 

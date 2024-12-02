@@ -35,18 +35,18 @@ const Nav = () => {
               <nav className="w-full fixed top-20 left-0 z-20 bg-red-500 text-white p-6 flex lg:hidden">
               <ul className="flex flex-col justify-start items-start   gap-4">
                 <li>
-                  <Link className="hover:text-gray-200" href="/">
+                  <Link onClick={()=>setShow(false)} className="hover:text-gray-200" href="/">
                     Accueil
                   </Link>
                 </li>
                 <li>
-                  <Link className="hover:text-gray-200" href="/regions-postales-maroc">
+                  <Link  onClick={()=>setShow(false)}  className="hover:text-gray-200" href="/regions-postales-maroc">
                     
                   régions Postales
                             </Link>
                 </li>
                 <li>
-                  <Link className="hover:text-gray-200" href="/contact">
+                  <Link  onClick={()=>setShow(false)}  className="hover:text-gray-200" href="/contact">
                     
                     Contact
                   </Link>

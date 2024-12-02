@@ -4,7 +4,7 @@ import Link from "next/link"
 
 function page() {
   return (
-    <main className="w-full flex min-h-screen flex-col items-start justify-start gap-3">
+    <main className="w-full flex min-h-screen flex-col items-center justify-start px-4 gap-4">
         <h1 className=" font-bold text-3xl">Politique de Confidentialité</h1>
 
 <h2  className="font-medium text-xl">Préambule</h2>

@@ -7,7 +7,7 @@ function ContactPage() {
   
     const  [state ,action] =useActionState(sendMessage,undefined)
   return (
-    <main className="w-full flex min-h-screen flex-col items-center justify-start gap-10">
+    <main className="w-full flex min-h-screen flex-col items-center justify-start px-4 gap-6">
           {state?.error && <span className="text-red-500">{state.error} </span>}
           {state?.success && < span className="text-green-600"> Message envoyé. Merci</span>}
          
