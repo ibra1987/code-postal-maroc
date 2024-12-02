@@ -17,7 +17,7 @@ export async function generateStaticParams() {
 }
 
 
-async function ParAgenceNamePage({params}:{params:{agenceName:string}}) {
+async function ParAgenceNamePage({params}:{params:Promise<{agenceName:string}>}) {
   const { agenceName} = await params
   const name = agenceName.toUpperCase().replaceAll("-"," ")
     const agence = Object.keys(agences).find(ag=>ag === name )
