@@ -17,8 +17,8 @@ export interface Region {
   // request comes in, at most once every 60 seconds.
   export const revalidate = 6
    
-  // We'll prerender only the params from `generateStaticParams` at build time.
-  // If a request comes in for a path that hasn't been generated,
+  // We&apos'll prerender only the params from `generateStaticParams` at build time.
+  // If a request comes in for a path that hasn&apos't been generated,
   // Next.js will server-render the page on-demand.
   export const dynamicParams = true // or false, to 404 on unknown paths
    
@@ -30,8 +30,9 @@ export interface Region {
   }
    
   export default async function Page({ params }: { params: { regionName: string } }) {
+    const {regionName} = await params
  const regionsCodes: Region[] = codes.filter(
-      (reg: Region) => reg.REGION_POSTALE === params.regionName.toUpperCase()
+      (reg: Region) => reg.REGION_POSTALE === regionName.toUpperCase()
     )!
     const provinces = regionsCodes.reduce((acc: Record<string, Region[]>, reg: Region) => {
       if (acc[reg.PROVINCE]) {
@@ -81,7 +82,7 @@ export interface Region {
                { provinces[province].map((reg)=>{
                 return (
                   <div className="w-full flex justify-between items-start gap-4 p-1 border-b" key={reg.NOUVEAU_CODE_POSTAL}>
-                  <Link href={`/code_postal_maroc/agences/${reg.AGENCE.toLowerCase().replaceAll(" ","-")}`} className="hover:bg-red-500 hover:text-white w-full px-2 flex justify-between rounded items-center p-2  ">
+                  <Link href={`/code-postal-maroc/agences/${reg.AGENCE.toLowerCase().replaceAll(" ","-")}`} className="hover:bg-red-500 hover:text-white w-full px-2 flex justify-between rounded items-center p-2  ">
                   <span>
                     {reg.AGENCE}
                   </span>

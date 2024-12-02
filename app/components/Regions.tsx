@@ -21,7 +21,7 @@ const Regions = () => {
             return (
                 <div key={index} className="p-4 bg-red-500 flex justify-center items-center rounded">
 
-                    <h3><Link className="hover:text-red-50   text-white " href={`/code_postal_maroc/${region.toLowerCase()}`}>{region.toLowerCase().charAt(0).toUpperCase()+region.slice(1).toLowerCase()}</Link></h3>
+                    <h3><Link className="hover:text-red-50   text-white " href={`/code-postal-maroc/${region.toLowerCase()}`}>{region.toLowerCase().charAt(0).toUpperCase()+region.slice(1).toLowerCase()}</Link></h3>
             </div>
             )
         })}

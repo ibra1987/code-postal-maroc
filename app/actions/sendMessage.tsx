@@ -35,7 +35,7 @@ export async function sendMessage(previousState:unknown,formdata:FormData) {
         //     port: 587, // For TLS
         //     secure: false, // True for 465, false for other ports
         //     auth: {
-        //       user: "", // Your email address
+        //       user: "     ", // Your email address
         //       pass: "", // Your email password or app password
         //     },
         //   });

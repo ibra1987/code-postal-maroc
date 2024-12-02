@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export const revalidate = 6;
 
-// We'll prerender only the params from `generateStaticParams` at build time.
-// If a request comes in for a path that hasn't been generated,
+// We&apos'll prerender only the params from `generateStaticParams` at build time.
+// If a request comes in for a path that hasn&apos't been generated,
 // Next.js will server-render the page on-demand.
 export const dynamicParams = true; // or false, to 404 on unknown paths
 
@@ -15,8 +15,10 @@ export async function generateStaticParams() {
   }));
 }
 
-function ParProvincePage({ params }: { params: { provinceName: string } }) {
-  const name = params.provinceName.toUpperCase().replaceAll("-"," ")
+async function ParProvincePage({ params }: { params: Promise<{ provinceName: string }> }) {
+  const {provinceName} = await params
+  const name = provinceName.toUpperCase().replaceAll("-"," ")
+  const data = provinces[name] ?? provinces[provinceName] ?? provinces[provinceName.toUpperCase()]
   return (
     <div className="w-full flex flex-col justify-start items-center gap-1  ">
       <h1 className="w-full text-left text-4xl font-bold mb-10">
@@ -25,13 +27,13 @@ function ParProvincePage({ params }: { params: { provinceName: string } }) {
           {name}
         </span>
       </h1>
-      {provinces[name].map((reg: Region) => {
+      {data?.map((reg: Region) => {
         return (
           <div className=" w-full border-b">
             <h3 className="w-full">
               <Link
                 className="hover:bg-red-500 hover:text-white w-full  px-2 flex justify-between rounded items-center p-2  "
-                href={`/code_postal_maroc/agences/${reg.AGENCE.toLowerCase().replaceAll(" ","-")}`}
+                href={`/code-postal-maroc/agences/${reg.AGENCE.toLowerCase().replaceAll(" ","-")}`}
               >
                 <span>{reg.AGENCE}</span>
                 <span>{reg.NOUVEAU_CODE_POSTAL}</span>
