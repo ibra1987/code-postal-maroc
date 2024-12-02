@@ -1,5 +1,4 @@
 import codes from "@/assets/codes";
-import Regions from "../components/Regions"
 import { Region } from "../code-postal-maroc/[regionName]/page";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
