@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Hero from "./components/Hero";
 import Regions from "./components/Regions";
 import Provinces from "./components/Provinces";
