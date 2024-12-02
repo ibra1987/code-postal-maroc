@@ -25,8 +25,8 @@ const SearchResults = ({ data ,close}: { data: Region[] ,close:()=>void}) => {
   
     // Display the results if data is available
     return (
-      <div className="w-screen h-screen z-10 absolute top-20 right-0  flex flex-col justify-start pt-20 items-center overflow-y-scroll ">
-        <div className="w-2/3 bg-white h-full p-4 rounded overflow-y-scroll  ">
+      <div className="w-screen h-screen z-10 absolute top-20 right-0  flex flex-col justify-start pt-20 items-center overflow-y-scroll px-4 ">
+        <div className="w-full lg:w-2/3 bg-white h-full p-4 rounded overflow-y-scroll  ">
         <div className="w-full text-sm hover:cursor-pointer flex justify-end items-center">
         <CircleX className="z-50  " color="red" onClick={close}/>
          </div>

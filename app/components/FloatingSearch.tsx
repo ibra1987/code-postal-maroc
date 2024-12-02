@@ -36,7 +36,7 @@ function FloatingSearch({close}:{close:()=>void}) {
 
  <div className="w-full flex flex-col justify-start items-center">
   {result && result.length>0 &&(
-    <div className="w-full md:w-3/5 items-start justify-center">
+    <div className="w-full lg:w-3/5 items-start justify-center">
         
 
           <div className="w-full grid grid-cols-4 justify-items-start p-4 bg-white text-black">
