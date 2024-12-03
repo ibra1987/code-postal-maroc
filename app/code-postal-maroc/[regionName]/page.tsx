@@ -1,7 +1,7 @@
 import codes  from "@/assets/codes"
 import { getRegionMetadata } from "@/assets/metadata"
 import { ChevronRight } from "lucide-react"
-import type { Metadata, ResolvingMetadata } from 'next'
+import type { Metadata } from 'next'
 
 import Link from "next/link"
 
@@ -32,7 +32,6 @@ type Props = {
 
 export async function generateMetadata(
   { params }: Props,
-  parent: ResolvingMetadata
 ): Promise<Metadata> {
   // read route params
   const regionName = (await params).regionName

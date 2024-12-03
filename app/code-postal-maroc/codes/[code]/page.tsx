@@ -2,7 +2,7 @@
 import { codePostaux } from "@/assets/codes_postaux";
 import { getCodeMetaData } from "@/assets/metadata";
 import { ChevronRight } from "lucide-react";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 
 
 // We&apos;ll prerender only the params from `generateStaticParams` at build time.
@@ -19,7 +19,6 @@ type Props = {
 
 export async function generateMetadata(
   { params }: Props,
-  parent: ResolvingMetadata
 ): Promise<Metadata> {
   // read route params
   const code = (await params).code

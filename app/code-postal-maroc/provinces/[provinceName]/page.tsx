@@ -1,7 +1,7 @@
 import { provinces } from "@/assets/provinces";
 import { Region } from "../../[regionName]/page";
 import Link from "next/link";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 import { getProvinceMetadata } from "@/assets/metadata";
 
 
@@ -14,7 +14,6 @@ type Props = {
 }
 export async function generateMetadata(
   { params }: Props,
-  parent: ResolvingMetadata
 ): Promise<Metadata> {
   // read route params
   const provinceName = (await params).provinceName
