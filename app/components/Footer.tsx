@@ -3,11 +3,11 @@ import Link from "next/link";
 
 export default function Footer() {
   return (  
-    <footer className="w-full bg-black text-gray-400 p-6">
+    <footer className="w-full flex flex-col text-sm justify-start items-center gap-4 bg-gray-800 text-gray-100 p-6">
       <div className="flex w-full justify-center items-center gap-10">
-      <Link href={"/politique-de-confidentialite"}>Politique de confidentialité</Link>
-      <Link href={"/conditions-utilisation"}>Conditions d&apos;utilisation</Link>
-      <Link href={"/disclaimer"}>Avis concernant la publicité </Link>
+      <Link className="hover:underline" href={"/politique-de-confidentialite"}>Politique de confidentialité</Link>
+      <Link className="hover:underline" href={"/conditions-utilisation"}>Conditions d&apos;utilisation</Link>
+      <Link className="hover:underline" href={"/disclaimer"}>Avis concernant la publicité </Link>
       </div>
       <p className="text-center">
         Le contenu de ce site est purement informatif et ne représente pas une autorité officielle. 

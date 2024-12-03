@@ -1,8 +1,13 @@
 import codes  from "@/assets/codes"
 import { ChevronRight } from "lucide-react"
+import { Metadata } from "next"
 
 import Link from "next/link"
 
+export const metadata :Metadata = {
+    title: "Code Postal Maroc",
+    description: "Code Postal Maroc",
+  }
 
 export interface Region {
     REGION_POSTALE:string,
@@ -13,7 +18,7 @@ export interface Region {
    
   // Next.js will invalidate the cache when a
   // request comes in, at most once every 60 seconds.
-  export const revalidate = 6
+  export const revalidate = 60*60*60*24*30
    
   // We&apos;ll prerender only the params from `generateStaticParams` at build time.
   // If a request comes in for a path that hasn&apos;t been generated,
@@ -69,9 +74,9 @@ export interface Region {
           </div>
         </div>
         <div className="w-full flex-col gap-3">
-           {Object.keys(provinces).map((province)=>{
+           {Object.keys(provinces).map((province,index)=>{
             return (
-              <div  key={province} className="flex flex-col gap-3 ">
+              <div  key={province+"-"+index} className="flex flex-col gap-3 ">
                  
                <h2 id={province} className="w-full flex  justify-start items-center text-2xl my-6 font-bold">
                <ChevronRight/> <span>Province de:{" "} {province}</span>

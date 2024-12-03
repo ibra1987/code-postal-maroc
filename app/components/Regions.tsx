@@ -19,9 +19,9 @@ const Regions = () => {
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 lg:grid-cols-5">
         {Object.keys(regionsPostales).map((region,index)=>{
             return (
-                <div key={index} className="p-4 bg-red-500 flex justify-center items-center rounded">
+                <div key={regionsPostales[region][0].NOUVEAU_CODE_POSTAL+"-"+index} className="p-4 bg-gradient-to-tr from-gray-700 to-black text-white flex justify-center items-center rounded">
 
-                    <h3><Link className="hover:text-red-50   text-white " href={`/code-postal-maroc/${region.toLowerCase()}`}>{region.toLowerCase().charAt(0).toUpperCase()+region.slice(1).toLowerCase()}</Link></h3>
+                    <h3><Link className="hover:underline   text-white " href={`/code-postal-maroc/${region.toLowerCase()}`}>{region.toLowerCase().charAt(0).toUpperCase()+region.slice(1).toLowerCase()}</Link></h3>
             </div>
             )
         })}

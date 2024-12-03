@@ -13,7 +13,7 @@ const HeroButton = () => {
     }
   return (
     <div>
-        <button onClick={()=>setShow(true)} className="text-white bg-green-800 rounded outline-none text-xl font-bold p-2 px-4">
+        <button onClick={()=>setShow(true)} className="text-white bg-green-800 rounded outline-none text-xl tracking-wider hover:bg-green-900 font-bold p-2 px-10">
     Rechercher
    </button>
  {show &&     <FloatingSearch close={close}/>

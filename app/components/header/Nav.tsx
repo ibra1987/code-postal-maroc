@@ -28,25 +28,25 @@ const Nav = () => {
         </li>
       </ul>
     </nav>
-     {!show &&  <Menu onClick={()=>setShow(true)} className="block lg:hidden"/>}
-     {show &&   <X onClick={()=>setShow(false)} className="block lg:hidden"/>}
+     {!show &&  <Menu size={32} onClick={()=>setShow(true)} className="block lg:hidden"/>}
+     {show &&   <X size={32 } onClick={()=>setShow(false)} className="block lg:hidden"/>}
 
       {show && (
-              <nav className="w-full fixed top-20 left-0 z-20 bg-red-500 text-white p-6 flex lg:hidden">
+              <nav className="w-full fixed top-20 left-0 z-20 bg-white border-b  shadow-md p-6 flex lg:hidden">
               <ul className="flex flex-col justify-start items-start   gap-4">
                 <li>
-                  <Link onClick={()=>setShow(false)} className="hover:text-gray-200" href="/">
+                  <Link onClick={()=>setShow(false)} className="hover:text-green-600" href="/">
                     Accueil
                   </Link>
                 </li>
                 <li>
-                  <Link  onClick={()=>setShow(false)}  className="hover:text-gray-200" href="/regions-postales-maroc">
+                  <Link  onClick={()=>setShow(false)}  className="hover:text-green-600" href="/regions-postales-maroc">
                     
                   régions Postales
                             </Link>
                 </li>
                 <li>
-                  <Link  onClick={()=>setShow(false)}  className="hover:text-gray-200" href="/contact">
+                  <Link  onClick={()=>setShow(false)}  className="hover:text-green-600" href="/contact">
                     
                     Contact
                   </Link>
