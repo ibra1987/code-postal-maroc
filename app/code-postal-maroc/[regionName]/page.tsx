@@ -4,10 +4,7 @@ import { Metadata } from "next"
 
 import Link from "next/link"
 
-export const metadata :Metadata = {
-    title: "Code Postal Maroc",
-    description: "Code Postal Maroc",
-  }
+
 
 export interface Region {
     REGION_POSTALE:string,
