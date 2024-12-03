@@ -1,6 +1,5 @@
 import codes  from "@/assets/codes"
 import { ChevronRight } from "lucide-react"
-import { Metadata } from "next"
 
 import Link from "next/link"
 
