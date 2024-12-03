@@ -1,13 +1,42 @@
 
 import { codePostaux } from "@/assets/codes_postaux";
+import { getCodeMetaData } from "@/assets/metadata";
 import { ChevronRight } from "lucide-react";
+import { Metadata, ResolvingMetadata } from "next";
 
-export const revalidate = 6;
+export const revalidate = 60*60*60*24;
 
 // We&apos;ll prerender only the params from `generateStaticParams` at build time.
 // If a request comes in for a path that hasn&apos;t been generated,
 // Next.js will server-render the page on-demand.
 export const dynamicParams = true; // or false, to 404 on unknown paths
+ 
+type Props = {
+  params: Promise<{ code: string }>
+}
+
+
+ const baseUr ="https://codepostalmaroc.com"
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const code = (await params).code
+ 
+
+  const meta = getCodeMetaData(code)
+  return {
+    title:meta?.title,
+    description:`${meta?.description} - Code Postal Maroc | ${code}`,
+    alternates:{
+      canonical: `${baseUr}/code-postal-maroc/codes/${code}`
+    }
+   
+  }
+}
+   
 export async function generateStaticParams() {
    
 

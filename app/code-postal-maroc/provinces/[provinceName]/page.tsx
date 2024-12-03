@@ -1,14 +1,36 @@
 import { provinces } from "@/assets/provinces";
 import { Region } from "../../[regionName]/page";
 import Link from "next/link";
+import { Metadata, ResolvingMetadata } from "next";
+import { getProvinceMetadata } from "@/assets/metadata";
 
-export const revalidate = 6;
+export const revalidate = 60*60*60*24;
 
 // We&apos;ll prerender only the params from `generateStaticParams` at build time.
 // If a request comes in for a path that hasn&apos;t been generated,
 // Next.js will server-render the page on-demand.
 export const dynamicParams = true; // or false, to 404 on unknown paths
+type Props = {
+  params: Promise<{ provinceName: string }>
+}
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const provinceName = (await params).provinceName
+ 
 
+  const meta = getProvinceMetadata(provinceName) 
+  ?? getProvinceMetadata(provinceName.toUpperCase().replaceAll("-"," "))
+   ?? getProvinceMetadata(provinceName.toUpperCase())
+   ?? getProvinceMetadata(provinceName.charAt(0).toUpperCase()+provinceName.slice(1))
+  return {
+    title:meta?.title,
+    description:`${meta?.description} - Code Postal Maroc | ${provinceName}`,
+   
+  }
+}
 export async function generateStaticParams() {
   return Object.keys(provinces).map((region) => ({
     provinceName: region,
@@ -18,7 +40,9 @@ export async function generateStaticParams() {
 async function ParProvincePage({ params }: { params: Promise<{ provinceName: string }> }) {
   const {provinceName} = await params
   const name = provinceName.toUpperCase().replaceAll("-"," ")
-  const data = provinces[name] ?? provinces[provinceName] ?? provinces[provinceName.toUpperCase()]
+  const data = provinces[name] 
+  ?? provinces[provinceName] 
+  ?? provinces[provinceName.toUpperCase()]
   return (
     <main className="w-full flex min-h-screen flex-col items-center justify-start px-4">
       <h1 className="w-full text-left text-4xl font-bold mb-10">

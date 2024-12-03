@@ -1,13 +1,16 @@
 
 import { agences } from "@/assets/agences";
 import { ChevronRight } from "lucide-react";
+import { Metadata } from "next";
 
-export const revalidate = 6;
+export const revalidate = 60*60*60*24;
 
-// We&apos;ll prerender only the params from `generateStaticParams` at build time.
-// If a request comes in for a path that hasn&apos;t been generated,
-// Next.js will server-render the page on-demand.
-export const dynamicParams = true; // or false, to 404 on unknown paths
+
+export const metadata: Metadata = {
+  title: 'Code postaux par agence postale | Code Postal Maroc',
+  description: 'Découvrez les codes postaux au Maroc, organisés par agence postale. Trouvez facilement le code postal dont vous avez besoin pour chaque région et ville marocaine.',
+}
+export const dynamicParams = true; 
 export async function generateStaticParams() {
     console.log(agences)
 

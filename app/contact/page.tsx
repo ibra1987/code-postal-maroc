@@ -2,6 +2,18 @@
 
 import { useActionState } from "react"
 import { sendMessage } from "../actions/sendMessage"
+import { Metadata } from "next";
+
+
+export const revalidate = 60*60*60*24;
+
+
+export const dynamicParams = false; // or false, to 404 on unknown paths
+
+export const metadata: Metadata = {
+  title: 'Nous contacter',
+  description: 'Code Postal Maroc - Nous contacter',
+}
 
 function ContactPage() {
   

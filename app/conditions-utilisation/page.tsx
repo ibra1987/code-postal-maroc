@@ -1,10 +1,20 @@
+import { Metadata } from "next"
 import Link from "next/link"
 
+export const revalidate = 60*60*60*24;
+
+// We&apos;ll prerender only the params from `generateStaticParams` at build time.
+// If a request comes in for a path that hasn&apos;t been generated,
+// Next.js will server-render the page on-demand.
+export const dynamicParams = false; // or false, to 404 on unknown paths
+
+export const metadata: Metadata = {
+  title: 'Conditions Générales d&apos;Utilisation',
+  description: 'Code Postal Maroc - Conditions Générales d&apos;Utilisation',
+}
 
 
-
-
-function page() {
+function TermsPage() {
   return (
     <main className="w-full flex min-h-screen flex-col items-center justify-start px-4">
 
@@ -45,4 +55,4 @@ ici</Link></p>
   )
 }
 
-export default page
+export default TermsPage

@@ -1,5 +1,7 @@
 import codes  from "@/assets/codes"
+import { getRegionMetadata } from "@/assets/metadata"
 import { ChevronRight } from "lucide-react"
+import type { Metadata, ResolvingMetadata } from 'next'
 
 import Link from "next/link"
 
@@ -14,12 +16,36 @@ export interface Region {
    
   // Next.js will invalidate the cache when a
   // request comes in, at most once every 60 seconds.
-  // export const revalidate = 60*60*60*24
+   export const revalidate = 60*60*60*24
    
   // We&apos;ll prerender only the params from `generateStaticParams` at build time.
   // If a request comes in for a path that hasn&apos;t been generated,
   // Next.js will server-render the page on-demand.
   export const dynamicParams = true // or false, to 404 on unknown paths
+
+ 
+type Props = {
+  params: Promise<{ regionName: string }>
+}
+
+
+ 
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const regionName = (await params).regionName
+ 
+
+  const meta = getRegionMetadata(regionName.toLowerCase().charAt(0).toUpperCase()+regionName.slice(1))
+  return {
+    title:meta?.title,
+    description:`${meta?.description} - Code Postal Maroc | ${regionName}`,
+   
+  }
+}
    
   export async function generateStaticParams() {
 
