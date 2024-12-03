@@ -4,7 +4,6 @@ import { getCodeMetaData } from "@/assets/metadata";
 import { ChevronRight } from "lucide-react";
 import { Metadata, ResolvingMetadata } from "next";
 
-export let revalidate = 60*60*60*24;
 
 // We&apos;ll prerender only the params from `generateStaticParams` at build time.
 // If a request comes in for a path that hasn&apos;t been generated,

@@ -3,7 +3,6 @@ import { agences } from "@/assets/agences";
 import { ChevronRight } from "lucide-react";
 import { Metadata } from "next";
 
-export let revalidate = 60*60*60*24;
 
 
 export const metadata: Metadata = {
