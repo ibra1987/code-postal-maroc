@@ -6,8 +6,8 @@ const SearchResults = ({ data ,close}: { data: Region[] ,close:()=>void}) => {
       // Display the "no results" message if data is missing or empty
       return (
         <div className="w-screen h-screen text-gray-700 z-10 absolute top-20 right-0  flex flex-col justify-start pt-20 items-center ">
-          <div className="w-2/3 bg-white z-20 h-full p-4 rounded">
-         <div className="w-full text-sm hover:cursor-pointer flex justify-end items-center">
+          <div className="w-full md:w-2/3 bg-white z-20 h-full  rounded relative ">
+         <div className="w-full text-sm hover:cursor-pointer flex justify-end items-center ">
              <CircleX className="z-50  " color="red" onClick={close}/>
          </div>
 
@@ -25,13 +25,13 @@ const SearchResults = ({ data ,close}: { data: Region[] ,close:()=>void}) => {
   
     // Display the results if data is available
     return (
-      <div className="w-screen h-screen z-10 absolute top-20 right-0  flex flex-col justify-start pt-20 items-center overflow-y-scroll px-4 ">
-        <div className="w-full lg:w-2/3 bg-white h-full py-4 rounded overflow-y-scroll  ">
-        <div className="w-full text-sm hover:cursor-pointer flex justify-end items-center">
+      <div className="w-screen h-screen z-10 absolute top-20 right-0  flex flex-col  justify-start pt-20 items-center overflow-y-scroll bg-black/25 px-4 ">
+        <div className="w-full lg:w-11/12 bg-white h-full py-16 rounded overflow-y-scroll relative   ">
+        <div className="w-full text-sm hover:cursor-pointer flex justify-end items-center absolute top-3 right-0">
         <CircleX className="z-50  " color="red" onClick={close}/>
          </div>
 
-          <div className="w-full grid grid-cols-4 justify-items-start text-white p-2 bg-red-500 ">
+          <div className="w-full grid grid-cols-4 justify-items-start text-white p-2 bg-red-500">
             <h3>région</h3>
             <h3>province</h3>
             <h3>agence</h3>

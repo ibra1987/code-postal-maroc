@@ -39,7 +39,7 @@ const Provinces = () => {
 
   return (
     <div className="w-full flex flex-col justify-start items-start gap-4 mt-16">
-      <h2 className="font-black text-2xl m-2">
+      <h2 className="font-black text-3xl m-2">
         Toutes les provinces postales au Maroc
       </h2>
 
@@ -53,7 +53,7 @@ const Provinces = () => {
       ].map((provinceGroup, groupIndex) => (
         <div
           key={`province-group-${groupIndex}`}
-          className={`parent-container w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 text-white bg-gradient-to-tr from-indigo-600 to-indigo-950 p-6 rounded-md ${
+          className={`parent-container w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 text-white bg-gradient-to-tr from-green-600 to-green-950 p-6 rounded-md ${
             visibleStates[groupIndex] ? "opacity-0 animate-fadeIn" : "opacity-0"
           }`}
         >

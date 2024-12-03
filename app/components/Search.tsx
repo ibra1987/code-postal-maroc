@@ -14,8 +14,15 @@ const Search = () => {
 
   const close = ()=>{
     setShowResults(false)
+    setResult([])
+    const input = document.getElementById("search") as HTMLInputElement
+    if(input.value){
+  input.value = ""
+    }
   }
   const showSearchResults = (e:ChangeEvent<HTMLInputElement>)=>{
+   
+
       const value = e.target.value.toLowerCase().trim()
       if (!value) {
         setShowResults(false); // Hide results when the input is empty
@@ -46,7 +53,7 @@ const Search = () => {
   return (
     <form className=" lg:w-1/2 border  p-2 rounded bg-gray-200 my-3 flex">
 
-                 <input onChange={showSearchResults} placeholder="taper votre recherche ici" type="search" className="w-full  bg-inherit outline-none border-gray-300 px-2 rounded"/>
+                 <input name="search" id="search" onChange={showSearchResults} placeholder="taper votre recherche ici" type="search" className="w-full  bg-inherit outline-none border-gray-300 px-2 rounded"/>
                   <SearchIcon/>
 
 
