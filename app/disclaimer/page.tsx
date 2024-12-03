@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 
 
-export const revalidate = 60*60*60*24;
+export let revalidate = 60*60*60*24;
 
 
 export const dynamicParams = false; // or false, to 404 on unknown paths
