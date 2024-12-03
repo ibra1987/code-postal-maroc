@@ -14,7 +14,7 @@ export interface Region {
    
   // Next.js will invalidate the cache when a
   // request comes in, at most once every 60 seconds.
-  export const revalidate = 60*60*60*24*30
+  export const revalidate = 60*60*60*24
    
   // We&apos;ll prerender only the params from `generateStaticParams` at build time.
   // If a request comes in for a path that hasn&apos;t been generated,
