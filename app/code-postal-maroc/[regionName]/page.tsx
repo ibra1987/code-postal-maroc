@@ -49,7 +49,7 @@ export async function generateMetadata(
   export async function generateStaticParams() {
 
     return codes.map((region:Region) => ({
-      regionName: region.REGION_POSTALE,
+      regionName: region.REGION_POSTALE.toLowerCase().trim(),
     }))
   }
    
