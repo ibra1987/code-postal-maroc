@@ -1,5 +1,6 @@
 import codes  from "@/assets/codes"
 import { getRegionMetadata } from "@/assets/metadata"
+import { regionsDescription } from "@/assets/regionsDescription"
 import { ChevronRight } from "lucide-react"
 import type { Metadata } from 'next'
 
@@ -54,7 +55,9 @@ export async function generateMetadata(
    
   export default async function Page({ params }: { params: Promise<{ regionName: string }> }) {
     const {regionName} = await params
- const regionsCodes: Region[] = codes.filter(
+    const firstLetterCapitalized = regionName?.charAt(0).toUpperCase()+regionName.slice(1)
+     console.log(firstLetterCapitalized)
+    const regionsCodes: Region[] = codes.filter(
       (reg: Region) => reg.REGION_POSTALE === regionName.toUpperCase()
     )!
     const provinces = regionsCodes.reduce((acc: Record<string, Region[]>, reg: Region) => {
@@ -92,6 +95,9 @@ export async function generateMetadata(
             })}
 
           </div>
+          <p className="my-6 indent-3 text-gray-700 tracking-wide leading-8">
+            {regionsDescription[firstLetterCapitalized as keyof typeof regionsDescription].description ?? ""}
+          </p>
         </div>
         <div className="w-full flex-col gap-3">
            {Object.keys(provinces).map((province,index)=>{
