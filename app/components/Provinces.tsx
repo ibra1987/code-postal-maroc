@@ -38,8 +38,8 @@ const Provinces = () => {
   }, []);
 
   return (
-    <div className="w-full flex flex-col justify-start items-start gap-4 mt-16">
-      <h2 className="font-black text-3xl m-2">
+    <div className="w-full flex flex-col justify-start items-start gap-4 ">
+      <h2 className=" tex-2xl font-black md:text-3xl m-2">
         Toutes les provinces postales au Maroc
       </h2>
 
@@ -53,7 +53,7 @@ const Provinces = () => {
       ].map((provinceGroup, groupIndex) => (
         <div
           key={`province-group-${groupIndex}`}
-          className={`parent-container w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 text-white bg-gradient-to-tr from-green-600 to-green-950 p-6 rounded-md ${
+          className={`parent-container w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 text-gray-800 border-b p-6 rounded-md ${
             visibleStates[groupIndex] ? "opacity-0 animate-fadeIn" : "opacity-0"
           }`}
         >
@@ -62,7 +62,10 @@ const Provinces = () => {
               key={provinces[province][0].NOUVEAU_CODE_POSTAL + "-" + index}
               className="p-2 flex gap-2 justify-start items-center rounded"
             >
-              <MapPinHouse size={16} />
+              <div className="p-2 bg-red-50 rounded">
+
+              <MapPinHouse color="red" size={16} />
+              </div>
               <Link
                 href={`/code-postal-maroc/provinces/${province
                   .toLowerCase()
