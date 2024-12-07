@@ -56,7 +56,6 @@ export async function generateMetadata(
   export default async function Page({ params }: { params: Promise<{ regionName: string }> }) {
     const {regionName} = await params
     const firstLetterCapitalized = regionName?.charAt(0).toUpperCase()+regionName.slice(1)
-     console.log(firstLetterCapitalized)
     const regionsCodes: Region[] = codes.filter(
       (reg: Region) => reg.REGION_POSTALE === regionName.toUpperCase()
     )!

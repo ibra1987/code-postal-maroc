@@ -1,5 +1,5 @@
 import { CircleX } from "lucide-react";
-import { Region } from "../code-postal-maroc/[regionName]/page";
+import { Region } from "../code-postal-maroc/regions/[regionName]/page";
 
 const SearchResults = ({ data ,close}: { data: Region[] ,close:()=>void}) => {
     if (!data || data.length === 0) {

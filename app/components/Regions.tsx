@@ -1,5 +1,5 @@
 import codes from "@/assets/codes"
-import { Region } from "../code-postal-maroc/[regionName]/page";
+import { Region } from "../code-postal-maroc/regions/[regionName]/page";
 import Link from "next/link";
 
 

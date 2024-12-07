@@ -1,7 +1,7 @@
 "use client"
 
 import { ChangeEvent, useState } from "react"
-import { Region } from "../code-postal-maroc/[regionName]/page"
+import { Region } from "../code-postal-maroc/regions/[regionName]/page"
 import codes from "@/assets/codes"
 import { CircleX } from "lucide-react"
 

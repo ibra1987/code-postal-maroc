@@ -1,6 +1,6 @@
 "use client"
 import { SearchIcon } from "lucide-react"
-import { Region } from "../code-postal-maroc/[regionName]/page"
+import { Region } from "../code-postal-maroc/regions/[regionName]/page"
 import { ChangeEvent, useEffect, useState } from "react"
 import SearchResults from "./SearchResults"
 import codes from "@/assets/codes"

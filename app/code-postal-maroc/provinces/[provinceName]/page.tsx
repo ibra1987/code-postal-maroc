@@ -1,5 +1,5 @@
 import { provinces } from "@/assets/provinces";
-import { Region } from "../../[regionName]/page";
+import { Region } from "../../regions/[regionName]/page";
 import Link from "next/link";
 import { Metadata } from "next";
 import { getProvinceMetadata } from "@/assets/metadata";

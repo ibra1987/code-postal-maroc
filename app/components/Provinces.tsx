@@ -67,7 +67,7 @@ const Provinces = () => {
                 href={`/code-postal-maroc/provinces/${province
                   .toLowerCase()
                   .replaceAll(" ", "-")}`}
-                className="hover:underline hover:text-gray-300"
+                className="hover:underline "
               >
                 {province.toLowerCase().charAt(0).toUpperCase() +
                   province.toLowerCase().slice(1)}
