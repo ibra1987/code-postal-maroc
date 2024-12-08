@@ -8,7 +8,7 @@ const Apropos = () => {
 
 <h2 className='w-full text-2xl font-black md:text-3xl m-2'> À Propos des Codes Postaux Marocains</h2>
 <p className='w-full text-center text-gray-600'>
-Le système postal marocain utilise des codes à 5 chiffres pour identifier précisément chaque zone de distribution. Notre base de données complète vous permet de trouver rapidement le code postal de n&apos;'importe quelle adresse au Maroc.
+Le système postal marocain utilise des codes à 5 chiffres pour identifier précisément chaque zone de distribution. Notre base de données complète vous permet de trouver rapidement le code postal de n&apos;importe quelle adresse au Maroc.
 
 </p>
     </div>
