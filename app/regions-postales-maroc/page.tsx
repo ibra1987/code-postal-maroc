@@ -31,7 +31,7 @@ function RegionsPostalesMarocPage() {
             return (
                 <div key={index} className="w-full p-4 flex flex-col justify-start items-left rounded">
 
-                    <h3><Link className="hover:text-red-500 flex" href={`/code-postal-maroc/${region.toLowerCase()}`}><ChevronRight/> {region}</Link></h3>
+                    <h3><Link className="hover:text-red-500 flex" href={`/code-postal-maroc/regions/${region.toLowerCase()}`}><ChevronRight/> {region}</Link></h3>
                     
             </div>
             )

@@ -21,7 +21,7 @@ const Regions = () => {
             return (
                 <div key={regionsPostales[region][0].NOUVEAU_CODE_POSTAL+"-"+index} className="p-4 border-2 shadow-sm hover:bg-gray-200 hover:border-2 bg-gradient-to-tr text-gray-800 flex justify-center items-center rounded">
 
-                    <h3><Link className="hover:underline font-medium   " href={`/code-postal-maroc/${region.toLowerCase()}`}>{region.toLowerCase().charAt(0).toUpperCase()+region.slice(1).toLowerCase()}</Link></h3>
+                    <h3><Link className="hover:underline font-medium   " href={`/code-postal-maroc/regions/${region.toLowerCase()}`}>{region.toLowerCase().charAt(0).toUpperCase()+region.slice(1).toLowerCase()}</Link></h3>
             </div>
             )
         })}
