@@ -10,7 +10,7 @@ import { agences } from '@/assets/agences'
 export default function sitemap(): MetadataRoute.Sitemap {
     const _agences =  Object.keys(agences).map((agence) => {
         return {
-            url: `${baseUrl}/code-postal-maroc/agences/${agence.toLowerCase().trim()}`,
+            url: `${baseUrl}/code-postal-maroc/agences/${agence.toLowerCase().trim().replaceAll(" ","-")}`,
            lastModified: new Date(),
            changeFrequency: 'monthly' as const,
            priority: 1,
@@ -25,9 +25,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
            priority: 1,
              }
     });
-    const _provinces =  Object.keys(provinces).map((region) => {
+    const _provinces =  Object.keys(provinces).map((province) => {
         return {
-            url: `${baseUrl}/code-postal-maroc/provinces/${region.toLowerCase().trim()}`,
+            url: `${baseUrl}/code-postal-maroc/provinces/${province.toLowerCase().trim().replaceAll(" ","-")}`,
            lastModified: new Date(),
            changeFrequency: 'monthly' as const,
            priority: 1,
