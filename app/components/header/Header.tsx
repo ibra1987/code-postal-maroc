@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <div className="w-full p-4 flex justify-center items-center px-4 mb-6 md:mb-12">
 
-         <div className="w-full  gap-6 flex flex-col md:flex-row justify-center md:justify-between items-center ">
+         <div className="w-full  gap-6 flex flex-col md:flex-row justify-center md:justify-between items-center max-w-5xl ">
               <div className="flex w-full justify-between items-center">
                   <Logo/>
                

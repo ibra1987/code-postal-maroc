@@ -14,9 +14,9 @@ const regionsPostales =  codes.reduce((acc: Record<string, Region[]>, reg: Regio
 
 const Regions = () => {
   return (
-    <div className="w-full flex flex-col gap-4 mt-16">
-        <h2 className=" tex-2xl font-black md:text-3xl m-2">Les règions postales au Maroc</h2>
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 lg:grid-cols-5">
+    <div className="w-full flex flex-col gap-8 mt-16">
+        <h2 className="  font-black text-4xl m-2">Les règions postales au Maroc</h2>
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-5">
         {Object.keys(regionsPostales).map((region,index)=>{
             return (
                 <div key={regionsPostales[region][0].NOUVEAU_CODE_POSTAL+"-"+index} className="p-4 border-2 shadow-sm hover:bg-gray-200 hover:border-2 bg-gradient-to-tr text-gray-800 flex justify-center items-center rounded">

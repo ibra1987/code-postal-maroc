@@ -38,8 +38,8 @@ const Provinces = () => {
   }, []);
 
   return (
-    <div className="w-full flex flex-col justify-start items-start gap-4 ">
-      <h2 className=" tex-2xl font-black md:text-3xl m-2">
+    <div className="w-full flex flex-col justify-start items-start gap-8 ">
+      <h2 className="  font-black text-4xl m-2">
         Toutes les provinces postales au Maroc
       </h2>
 

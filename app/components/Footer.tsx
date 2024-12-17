@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Footer() {
   return (  
     <footer className="w-full flex flex-col text-sm justify-start items-center gap-4 bg-gray-800 text-gray-100 p-6">
-      <div className="flex w-full justify-center items-center gap-10">
+      <div className="flex w-full justify-center items-center gap-10 max-w-5xl">
       <Link className="hover:underline" href={"/politique-de-confidentialite"}>Politique de confidentialité</Link>
       <Link className="hover:underline" href={"/conditions-utilisation"}>Conditions d&apos;utilisation</Link>
       <Link className="hover:underline" href={"/disclaimer"}>Avis concernant la publicité </Link>
