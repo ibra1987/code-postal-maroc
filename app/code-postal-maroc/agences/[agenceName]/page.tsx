@@ -12,7 +12,6 @@ type Props = {
 }
 
 
- const baseUr ="https://codepostalmaroc.com"
 
 export async function generateMetadata(
   { params }: Props,
