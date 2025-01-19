@@ -1,17 +1,37 @@
 
 import { agences } from "@/assets/agences";
+import { getAgenceMetaData } from "@/assets/metadata";
 import { ChevronRight } from "lucide-react";
 import { Metadata } from "next";
 
 
-
-export const metadata: Metadata = {
-  title: 'Code postaux par agence postale | Code Postal Maroc',
-  description: 'Découvrez les codes postaux au Maroc, organisés par agence postale. Trouvez facilement le code postal dont vous avez besoin pour chaque région et ville marocaine.',
+export const dynamicParams = true; // or false, to 404 on unknown paths
+ 
+type Props = {
+  params: Promise<{ agenceName: string }>
 }
-export const dynamicParams = true; 
+
+
+ const baseUr ="https://codepostalmaroc.com"
+
+export async function generateMetadata(
+  { params }: Props,
+): Promise<Metadata> {
+  // read route params
+  const agence = (await params).agenceName
+  const agenceName = agence.split("-").join(" ")
+ 
+
+  const meta = getAgenceMetaData(agenceName)
+  return {
+    title:meta?.title,
+    description:`${meta?.description}`,
+  
+   
+  }
+}
+   
 export async function generateStaticParams() {
-    console.log(agences)
 
   return Object.keys(agences).map((agence) => ({
     provinceName: agence
@@ -20,6 +40,7 @@ export async function generateStaticParams() {
 
 
 async function ParAgenceNamePage({params}:{params:Promise<{agenceName:string}>}) {
+
   const { agenceName} = await params
   const name = agenceName.toUpperCase().replaceAll("-"," ")
     const agence = Object.keys(agences).find(ag=>ag === name )
@@ -31,7 +52,7 @@ async function ParAgenceNamePage({params}:{params:Promise<{agenceName:string}>})
     }
   return (
     <main className="w-full flex min-h-screen flex-col items-center justify-start">
-     <h1 className="w-full text-center text-4xl font-bold mb-10">
+     <h1 className="w-full text-center text-2xl md:text-4xl font-bold mb-10">
         Code Postal de l&apos;agence
         <span className="text-red-500 m-2 underline">
           {agence}
