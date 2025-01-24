@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "./components/header/Header";
 import Footer from "./components/Footer";
 import {GoogleAnalytics} from "@next/third-parties/google"
+import { Analytics } from "@vercel/analytics/react"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,6 +36,7 @@ export default function RootLayout({
         <div className="max-w-5xl mx-auto flex flex-col justify-start items-center ">
           
         {children}
+        <Analytics/>
         </div>
         <Footer/>
       <GoogleAnalytics gaId="G-D0493NM11N"/>
