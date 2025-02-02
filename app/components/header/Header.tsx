@@ -16,9 +16,7 @@ const Header = () => {
            
                <Nav/>
               </div>
-              <div className="md:hidden w-full">
-                <Search/> 
-              </div>
+             
               
              
 

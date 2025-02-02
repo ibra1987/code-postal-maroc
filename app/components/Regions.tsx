@@ -24,6 +24,7 @@ const Regions = () => {
         {Object.keys(regionsPostales).map((region, index) => {
           return (
             <Link
+            key={region}
               className="font-medium   "
               href={`/regions-postales/${region.toLowerCase()}`}
             >
