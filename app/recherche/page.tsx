@@ -15,7 +15,6 @@ async function SearchPage({searchParams}:{searchParams:Promise<{search:string}>}
 
     const normalize =( str: string) => str.replace(/\s+/g, " ").trim().toLowerCase();
     const query = normalize(decodeURIComponent(search));
-    const queryWords = query.split(/\s+/); // Split query into words
     
    // Function to calculate similarity score (higher is better)
  // Function to count matching letters between query and text

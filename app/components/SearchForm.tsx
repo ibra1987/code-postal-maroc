@@ -1,6 +1,5 @@
 "use client";
 import { SearchIcon} from "lucide-react";
-import Link from "next/link";
 import { ChangeEvent, useState } from "react";
 
 const SearchForm = () => {
