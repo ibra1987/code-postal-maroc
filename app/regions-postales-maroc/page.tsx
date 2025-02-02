@@ -1,5 +1,5 @@
 import codes from "@/assets/codes";
-import { Region } from "../code-postal-maroc/regions/[regionName]/page";
+import { Region } from "../regions-postales/[regionName]/page";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
@@ -31,7 +31,7 @@ function RegionsPostalesMarocPage() {
             return (
                 <div key={index} className="w-full p-4 flex flex-col justify-start items-left rounded">
 
-                    <h3><Link className="hover:text-red-500 flex" href={`/code-postal-maroc/regions/${region.toLowerCase()}`}><ChevronRight/> {region}</Link></h3>
+                    <h3><Link className="hover:text-red-500 flex" href={`/regions-postales/${region.toLowerCase()}`}><ChevronRight/> {region}</Link></h3>
                     
             </div>
             )

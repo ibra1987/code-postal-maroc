@@ -15,7 +15,7 @@ type Props = {
 }
 
 
- const baseUr ="https://codepostalmaroc.com"
+ const baseUrl ="https://codepostalmaroc.com"
 
 export async function generateMetadata(
   { params }: Props,
@@ -29,7 +29,7 @@ export async function generateMetadata(
     title:meta?.title,
     description:`${meta?.description} - Code Postal Maroc | ${code}`,
     alternates:{
-      canonical: `${baseUr}/code-postal-maroc/codes/${code}`
+      canonical: `${baseUrl}/codes/${code}`
     }
    
   }
@@ -62,7 +62,7 @@ async function ParCodePostalPage({params}:{params:Promise<{code:string}>}) {
         </span>
       </h1>
       <div className="w-full flex flex-col justify-center items-center   ">
-        <h2 className="w-full  text-center font-black text-5xl text-red-500 mb-6">
+        <h2 className="w-full  text-center font-black text-3xl text-red-500 mb-6">
            Agence: {codePostaux[foundCode as keyof typeof codePostaux][0].AGENCE}
         </h2>
         <div className="flex w-full flex-col justify-start items-start text-gray-500">

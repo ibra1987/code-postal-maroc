@@ -1,5 +1,5 @@
 import { provinces } from "@/assets/provinces";
-import { Region } from "../../regions/[regionName]/page";
+import { Region } from "../../regions-postales/[regionName]/page";
 import Link from "next/link";
 import { Metadata } from "next";
 import { getProvinceMetadata } from "@/assets/metadata";
@@ -55,7 +55,7 @@ async function ParProvincePage({ params }: { params: Promise<{ provinceName: str
             <h3 className="w-full">
               <Link
                 className="hover:bg-red-500 hover:text-white w-full  px-2 flex justify-between rounded items-center p-2  "
-                href={`/code-postal-maroc/agences/${reg.AGENCE.toLowerCase().replaceAll(" ","-")}`}
+                href={`/agences/${reg.AGENCE.toLowerCase().replaceAll(" ","-")}`}
               >
                 <span>{reg.AGENCE}</span>
                 <span>{reg.NOUVEAU_CODE_POSTAL}</span>

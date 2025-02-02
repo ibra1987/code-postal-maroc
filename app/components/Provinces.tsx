@@ -39,7 +39,7 @@ const Provinces = () => {
 
   return (
     <div className="w-full flex flex-col justify-start items-start gap-8 ">
-      <h2 className="  font-black text-4xl m-2">
+      <h2 className="  font-black text-3xl m-2 text-gray-700">
         Toutes les provinces postales au Maroc
       </h2>
 
@@ -64,13 +64,13 @@ const Provinces = () => {
             >
               <div className="p-2 bg-red-50 rounded">
 
-              <MapPinHouse color="red" size={16} />
+              <MapPinHouse color="red" size={12} />
               </div>
               <Link
-                href={`/code-postal-maroc/provinces/${province
+                href={`/provinces/${province
                   .toLowerCase()
                   .replaceAll(" ", "-")}`}
-                className="hover:underline "
+                className="hover:underline font-medium "
               >
                 {province.toLowerCase().charAt(0).toUpperCase() +
                   province.toLowerCase().slice(1)}

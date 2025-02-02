@@ -1,9 +1,9 @@
 import Hero from "./components/Hero";
 import Regions from "./components/Regions";
 import Provinces from "./components/Provinces";
-import HeroButton from "./components/HeroButton";
 import { Metadata } from "next";
 import Apropos from "./components/Apropos";
+import SearchForm from "./components/SearchForm";
 
 
 
@@ -16,12 +16,19 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-        <Hero/>
-        <HeroButton/>
-        <Regions/>
-        <Apropos/>
+    <div className="w-full flex flex-col items-center justify-items-center min-h-screen ">
+        <div className="w-full bg-red-600 flex flex-col justify-center items-center  px-3 md:px-20 py-36">
+         
+          <Hero/>
+          <SearchForm/>
+          
+        </div>
+       <div className="w-full flex flex-col justify-start items-center  px-3 md:px-20 gap-10">
+       <Regions/>
+        
         <Provinces/>
+        <Apropos/>
+        </div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 "use server"
 
 import * as z from "zod"
-// import nodemailer from "nodemailer"
+import { Resend } from "resend"
 const MessageSchema = z.object({
     name:z.string().min(1,{message:"Merci de fournir votre nom"}),
     email:z.string().email({message:"Merci de fournir une addresse email valide"}),
@@ -29,29 +29,15 @@ export async function sendMessage(previousState:unknown,formdata:FormData) {
     }
 
     try {
+   const resend = new Resend(process.env.RESEND_API_KEY!)
 
-        // const transporter = nodemailer.createTransport({
-        //     host: "smtp.gmail.com", // e.g., "smtp.gmail.com"
-        //     port: 587, // For TLS
-        //     secure: false, // True for 465, false for other ports
-        //     auth: {
-        //       user: "     ", // Your email address
-        //       pass: "", // Your email password or app password
-        //     },
-        //   });
-
-        //   const mailOptions = {
-        //     from: `"${name}" <${email}>`, // Sender address
-        //     to: "brahimdriouch.dev@gmail.com", // Your receiving email address
-        //     subject: "New Contact Form Submission",
-        //     text: message, // Plain text body
-        //     html: `<p><strong>From:</strong> ${name} (${email})</p>
-        //            <p><strong>Message:</strong></p>
-        //            <p>${message}</p>`, // HTML body
-        //   };
-        //   await transporter.sendMail(mailOptions);
-
-        // register message 
+   resend.emails.send({
+       from:"team@lamineyamal.io",
+       to:"brahimdriouch.dev@gmail.com",
+       subject:`New email from ${email}`,
+       text:`Nom: ${name} \nEmail: ${email} \nMessage: ${message}`
+   })
+       
           return {
             success:true
           }

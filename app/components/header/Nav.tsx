@@ -10,18 +10,18 @@ const Nav = () => {
        <nav className=" hidden lg:flex">
       <ul className="flex justify-center items-center gap-4">
         <li>
-          <Link className="hover:text-green-700" href="/">
+          <Link className=" border-b border-b-transparent hover:border-b-red-400 py-2" href="/">
             Accueil
           </Link>
         </li>
         <li>
-          <Link className="hover:text-green-700" href="/regions-postales-maroc">
+          <Link className=" border-b border-b-transparent hover:border-b-red-400 py-2" href="/regions-postales-maroc">
             
           régions Postales
                     </Link>
         </li>
         <li>
-          <Link className="hover:text-green-700" href="/contact">
+          <Link className=" border-b border-b-transparent hover:border-b-red-400 py-2" href="/contact">
             
             Contact
           </Link>
@@ -35,18 +35,18 @@ const Nav = () => {
               <nav className="w-full fixed top-20 left-0 z-20 bg-white border-b  shadow-md p-6 flex lg:hidden">
               <ul className="flex flex-col justify-start items-start   gap-4">
                 <li>
-                  <Link onClick={()=>setShow(false)} className="hover:text-green-600" href="/">
+                  <Link onClick={()=>setShow(false)} className=" border-b border-b-transparent hover:border-b-red-400 py-2" href="/">
                     Accueil
                   </Link>
                 </li>
                 <li>
-                  <Link  onClick={()=>setShow(false)}  className="hover:text-green-600" href="/regions-postales-maroc">
+                  <Link  onClick={()=>setShow(false)}  className=" border-b border-b-transparent hover:border-b-red-400 py-2" href="/regions-postales-maroc">
                     
                   régions Postales
                             </Link>
                 </li>
                 <li>
-                  <Link  onClick={()=>setShow(false)}  className="hover:text-green-600" href="/contact">
+                  <Link  onClick={()=>setShow(false)} className=" border-b border-b-transparent hover:border-b-red-400 py-2" href="/contact">
                     
                     Contact
                   </Link>

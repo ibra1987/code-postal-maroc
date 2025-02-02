@@ -42,7 +42,7 @@ async function ParAgenceNamePage({params}:{params:Promise<{agenceName:string}>})
 
   const { agenceName} = await params
   const name = agenceName.toUpperCase().replaceAll("-"," ")
-    const agence = Object.keys(agences).find(ag=>ag === name )
+  const agence = Object.keys(agences).find(ag=>ag === name )
 
     if(!agence) {
       return   <main className="flex min-h-screen flex-col items-center justify-start px-4">

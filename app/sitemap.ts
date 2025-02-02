@@ -1,6 +1,6 @@
 import codes from '@/assets/codes'
 import type { MetadataRoute } from 'next'
-import { Region } from './code-postal-maroc/regions/[regionName]/page'
+import { Region } from './regions-postales/[regionName]/page'
 import { provinces } from '@/assets/provinces'
 import { codePostaux } from '@/assets/codes_postaux'
 import { agences } from '@/assets/agences'
@@ -10,7 +10,7 @@ import { agences } from '@/assets/agences'
 export default function sitemap(): MetadataRoute.Sitemap {
     const _agences =  Object.keys(agences).map((agence) => {
         return {
-            url: `${baseUrl}/code-postal-maroc/agences/${agence.toLowerCase().trim().replaceAll(" ","-")}`,
+            url: `${baseUrl}/agences/${agence.toLowerCase().trim().replaceAll(" ","-")}`,
            lastModified: new Date(),
            changeFrequency: 'monthly' as const,
            priority: 1,
@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     const _codes =  Object.keys(codePostaux).map((code) => {
         return {
-            url: `${baseUrl}/code-postal-maroc/codes/${code}`,
+            url: `${baseUrl}/codes/${code}`,
            lastModified: new Date(),
            changeFrequency: 'monthly' as const,
            priority: 1,
@@ -27,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
     const _provinces =  Object.keys(provinces).map((province) => {
         return {
-            url: `${baseUrl}/code-postal-maroc/provinces/${province.toLowerCase().trim().replaceAll(" ","-")}`,
+            url: `${baseUrl}/provinces/${province.toLowerCase().trim().replaceAll(" ","-")}`,
            lastModified: new Date(),
            changeFrequency: 'monthly' as const,
            priority: 1,
@@ -36,7 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     const _regions =  codes.map((region:Region) =>{
         return {
-            url: `${baseUrl}/code-postal-maroc/regions/${region.REGION_POSTALE.toLowerCase().trim()}`,
+            url: `${baseUrl}/regions/${region.REGION_POSTALE.toLowerCase().trim()}`,
            lastModified: new Date(),
            changeFrequency: 'monthly' as const,
            priority: 1,

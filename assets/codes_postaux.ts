@@ -1,4 +1,4 @@
-import { Region } from "@/app/code-postal-maroc/regions/[regionName]/page";
+import { Region } from "@/app/regions-postales/[regionName]/page";
 import codes from "./codes";
 
 

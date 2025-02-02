@@ -110,7 +110,7 @@ export async function generateMetadata(
                { provinces[province].map((reg)=>{
                 return (
                   <div className="w-full flex justify-between items-start gap-4 p-1 border-b" key={reg.NOUVEAU_CODE_POSTAL}>
-                  <Link href={`/code-postal-maroc/agences/${reg.AGENCE.toLowerCase().replaceAll(" ","-")}`} className="hover:bg-red-500 hover:text-white w-full px-2 flex justify-between rounded items-center p-2  ">
+                  <Link href={`/agences/${reg.AGENCE.toLowerCase().replaceAll(" ","-")}`} className="hover:bg-red-500 hover:text-white w-full px-2 flex justify-between rounded items-center p-2  ">
                   <span>
                     {reg.AGENCE}
                   </span>
