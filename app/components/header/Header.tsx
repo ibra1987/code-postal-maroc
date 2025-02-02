@@ -1,4 +1,3 @@
-import Search from "../Search"
 import Logo from "./Logo"
 import Nav from "./Nav"
 
