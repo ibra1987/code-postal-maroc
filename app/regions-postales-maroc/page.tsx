@@ -16,17 +16,17 @@ const regionsPostales =  codes.reduce((acc: Record<string, Region[]>, reg: Regio
 
 function RegionsPostalesMarocPage() {
   return (
-    <main className="w-full flex min-h-screen flex-col items-center justify-start px-4">
+    <main className="w-full flex min-h-screen flex-col items-center justify-start px-3 md:px-20 py-20">
 
      <h1 className="w-full text-left text-4xl font-black">
           Liste des régions postales au Maroc
      </h1>
     
-      <p className="text-xl text-gray-700 my-4">
+      <p className="w-full text-left text-xl text-gray-700 my-4">
           Les régions postales au Maroc sont divisées en 12 régions.
           Voici ci dessous la liste complète des ces régions.
      </p>
-     <div className="w-full flex flex-col">
+     <div className="w-full grid grid-cols-2">
      {Object.keys(regionsPostales).map((region,index)=>{
             return (
                 <div key={index} className="w-full p-4 flex flex-col justify-start items-left rounded">

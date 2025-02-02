@@ -12,7 +12,7 @@ const SearchForm = () => {
 
   return (
     <div className="w-full flex flex-col justify-start items-center relative">
-      <form className="w-full md:w-3/5 border  p-1 rounded bg-gray-200 my-3 ">
+      <form action={`/recherche?search=${searchInput}`} className="w-full md:w-3/5 border  p-1 rounded bg-gray-200 my-3 ">
         <div className="w-full flex justify-between items-center">
           <input
             name="search"
@@ -24,13 +24,13 @@ const SearchForm = () => {
             className="w-full  bg-inherit outline-none border-gray-300 py-1 px-2 rounded"
           />
 
-          <Link
+          <button
             className="flex gap-2 items-center bg-green-600 text-white rounded py-2 px-6 hover:bg-green-700"
-            href={`${!searchInput ? "/" : `/recherche?q=${searchInput}`}`}
+            type="submit"
           >
             <SearchIcon />
             Rechercher
-          </Link>
+          </button>
         </div>
       </form>
       

@@ -42,7 +42,7 @@ async function ParProvincePage({ params }: { params: Promise<{ provinceName: str
   ?? provinces[provinceName] 
   ?? provinces[provinceName.toUpperCase()]
   return (
-    <main className="w-full flex min-h-screen flex-col items-center justify-start px-4">
+    <main className="w-full flex min-h-screen flex-col items-center justify-start px-3 md:p-20 ">
       <h1 className="w-full text-left text-4xl font-bold mb-10">
         Liste des codes postaux de la province
         <span className="text-red-500 m-2 underline">

@@ -69,18 +69,20 @@ export async function generateMetadata(
     }, {} as Record<string, Region[]>);
   if(!regionsCodes.length){
     return (
-      <main className="flex min-h-screen flex-col items-center justify-start">
+      <main className="flex min-h-screen flex-col items-center justify-start px-3 md:p-20 ">
         Aucune resulat correspond à votre recherche (:
       </main>
     )
   }
     return (
-      <main className="w-full flex min-h-screen flex-col items-center justify-start px-4">
+      <main className="w-full flex min-h-screen flex-col items-center justify-start px-3 md:p-20">
         <h1 className="w-full text-left text-4xl font-bold">Liste des codes postaux de la region 
-          <span className="text-red-500 m-2 underline">
+          <span className=" mx-2">
         {regionName?.toUpperCase() }
         </span></h1>
-
+        <p className="my-6 indent-3 text-gray-700 tracking-wide leading-8">
+            {regionsDescription[firstLetterCapitalized as keyof typeof regionsDescription].description ?? ""}
+          </p>
         <div className="w-full mt-12">
           <h2 className="font-medium">Provinces de la region {regionName?.toUpperCase()}</h2>
           <div className="flex flex-col justify-start items-start bg-gray-100 p-4 rounded border">
@@ -94,9 +96,7 @@ export async function generateMetadata(
             })}
 
           </div>
-          <p className="my-6 indent-3 text-gray-700 tracking-wide leading-8">
-            {regionsDescription[firstLetterCapitalized as keyof typeof regionsDescription].description ?? ""}
-          </p>
+         
         </div>
         <div className="w-full flex-col gap-3">
            {Object.keys(provinces).map((province,index)=>{
