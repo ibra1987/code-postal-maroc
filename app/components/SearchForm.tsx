@@ -24,11 +24,13 @@ const SearchForm = () => {
           />
 
           <button
-            className="flex gap-2 items-center bg-green-600 text-white rounded py-2 px-6 hover:bg-green-700"
+            className="flex gap-2 items-center bg-green-600 text-white rounded py-2 px-2 md:px-6 hover:bg-green-700"
             type="submit"
           >
             <SearchIcon />
+            <span className="hidden md:inline-block">
             Rechercher
+            </span>
           </button>
         </div>
       </form>
