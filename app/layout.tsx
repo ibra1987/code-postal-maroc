@@ -4,6 +4,7 @@ import Header from "./components/header/Header";
 import Footer from "./components/Footer";
 import {GoogleAnalytics} from "@next/third-parties/google"
 import { Analytics } from "@vercel/analytics/react"
+import { Metadata } from "next";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -16,6 +17,14 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+
+export const metadata :Metadata  ={
+  verification:{
+    other:{
+      monetag:"5688dccfac0dc174d6c5c1479b4b12d0"
+    }
+  }
+}
 
 
 export default function RootLayout({
