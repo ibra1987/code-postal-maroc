@@ -3,6 +3,7 @@ import { agences } from "@/assets/agences";
 import { getAgenceMetaData } from "@/assets/metadata";
 import { ChevronRight } from "lucide-react";
 import { Metadata } from "next";
+import Script from "next/script";
 
 
 export const dynamicParams = true; // or false, to 404 on unknown paths
@@ -51,6 +52,16 @@ async function ParAgenceNamePage({params}:{params:Promise<{agenceName:string}>})
     }
   return (
     <main className="w-full flex min-h-screen flex-col items-center justify-start px-3 md:p-20 ">
+      {/**propellar ads interstitial*/}
+
+      <Script
+        id="external-script"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('groleegni.net',8897875,document.createElement('script'))`,
+        }}
+      />
+
      <h1 className="w-full text-center text-2xl md:text-4xl font-bold mb-10">
         Code Postal de l&apos;agence
         <span className="text-red-500 m-2 underline">
