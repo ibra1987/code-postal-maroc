@@ -41,8 +41,8 @@ export default function RootLayout({
         {/**propellar ads interstitial*/}
 
       <Script
-        id="external-script"
-        strategy="afterInteractive"
+        defer
+        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{
           __html: `(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('groleegni.net',8897875,document.createElement('script'))`,
         }}
