@@ -5,6 +5,7 @@ import { ChevronRight } from "lucide-react"
 import type { Metadata } from 'next'
 
 import Link from "next/link"
+import Script from "next/script"
 
 
 
@@ -42,7 +43,7 @@ export async function generateMetadata(
   return {
     title:meta?.title,
     description:`${meta?.description} - Code Postal Maroc | ${regionName}`,
-   
+    
   }
 }
    
@@ -54,6 +55,8 @@ export async function generateMetadata(
   }
    
   export default async function Page({ params }: { params: Promise<{ regionName: string }> }) {
+
+    //state 
     const {regionName} = await params
     const firstLetterCapitalized = regionName?.charAt(0).toUpperCase()+regionName.slice(1)
     const regionsCodes: Region[] = codes.filter(
@@ -74,8 +77,40 @@ export async function generateMetadata(
       </main>
     )
   }
+    // structured data 
+
+
+
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "regiosPostales",
+      "name": regionName,
+      "addressRegion": regionName,
+      "containedIn": {
+        "@type": "Country",
+        "name": "Morocco",
+        "addressCountry": "MA"
+      },
+      "hasPostalCode": regionsCodes.map((region:Region) => ({
+        "@type": "PostalAddress",
+        "addressLocality": region.REGION_POSTALE,
+        "postalCode": region.NOUVEAU_CODE_POSTAL
+      }))
+    };
+  
+
+
+
     return (
-      <main className="w-full flex min-h-screen flex-col items-center justify-start px-3 md:p-20">
+     <>
+     
+    <Script
+    id="structed-data-regions"
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} 
+    />
+     
+     <main className="w-full flex min-h-screen flex-col items-center justify-start px-3 md:p-20">
         <h1 className="w-full text-left text-4xl font-bold">Liste des codes postaux de la region 
           <span className=" mx-2">
         {regionName?.toUpperCase() }
@@ -127,5 +162,6 @@ export async function generateMetadata(
           
         </div>
       </main>
+     </>
     )
   }

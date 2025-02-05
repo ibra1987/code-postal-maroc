@@ -2,7 +2,7 @@ import { Region } from "@/app/regions-postales/[regionName]/page";
 import codes from "./codes";
 
 
-const agences = codes.reduce((acc: Record<string, Region[]>, reg: Region) => {
+export const agences = codes.reduce((acc: Record<string, Region[]>, reg: Region) => {
     if (acc[reg.AGENCE]) {
       acc[reg.AGENCE].push(reg);
     } else {
@@ -12,4 +12,3 @@ const agences = codes.reduce((acc: Record<string, Region[]>, reg: Region) => {
   }, {} as Record<string, Region[]>);
 
 
-  export {agences}
