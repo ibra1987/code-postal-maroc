@@ -83,7 +83,7 @@ export async function generateMetadata(
 
     const structuredData = {
       "@context": "https://schema.org",
-      "@type": "regiosPostales",
+      "@type": "AdministrativeArea",
       "name": regionName,
       "addressRegion": regionName,
       "containedIn": {
@@ -105,7 +105,8 @@ export async function generateMetadata(
      <>
      
     <Script
-    id="structed-data-regions"
+     strategy="afterInteractive"
+    id="structured-data-regions"
     type="application/ld+json"
     dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} 
     />
