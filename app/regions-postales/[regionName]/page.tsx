@@ -91,11 +91,11 @@ export async function generateMetadata(
         "name": "Morocco",
         "addressCountry": "MA"
       },
-      "hasPostalCode": regionsCodes.map((region:Region) => ({
+      "hasPostalCode": {
         "@type": "PostalAddress",
-        "addressLocality": region.REGION_POSTALE,
-        "postalCode": region.NOUVEAU_CODE_POSTAL
-      }))
+        "addressLocality": regionName,
+        "postalCode": regionsCodes[0].NOUVEAU_CODE_POSTAL
+      }
     };
   
 
