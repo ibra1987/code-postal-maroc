@@ -5,7 +5,6 @@ import Footer from "./components/Footer";
 import {GoogleAnalytics} from "@next/third-parties/google"
 import { Analytics } from "@vercel/analytics/react"
 import { Metadata } from "next";
-import Script from "next/script";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
