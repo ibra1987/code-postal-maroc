@@ -8,6 +8,25 @@ import { agences } from '@/assets/agences'
  export const baseUrl ="https://codepostalmaroc.com"
 
 export default function sitemap(): MetadataRoute.Sitemap {
+
+    const regionSearchResults= codes.map((region:Region) =>{
+      return {
+        url: `${baseUrl}/recherche/?search=${region.REGION_POSTALE.toLowerCase().trim()}`,
+        changeFrequency: 'yearly' as const,
+      priority:1
+
+      
+      }
+    })
+    const localiteSearchResults= codes.map((localite:Region) => {
+      return  {
+        url: `${baseUrl}/recherche/?search=${localite.AGENCE.toLowerCase().trim()}`,
+        changeFrequency: 'yearly' as const,
+      priority:1
+
+      
+      }
+    })
     const _agences =  Object.keys(agences).map((agence) => {
         return {
             url: `${baseUrl}/agences/${agence.toLowerCase().trim().replaceAll(" ","-")}`,
@@ -48,6 +67,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ..._codes,
     ..._provinces,
     ..._regions,
+    ...regionSearchResults,
+    ...localiteSearchResults,
     {
       url: `${baseUrl}`,
       lastModified: new Date(),

@@ -27,7 +27,7 @@ export function getRegionMetadata(region:string) {
         },
         {
             region:"Marrakech",
-          title: "Trouvez les Codes Postaux à Marrakech - Toutes les Zones Couvertes",
+          title: " Codes Postaux de Marrakech - Toutes les Zones Couvertes",
           description: "Consultez les codes postaux de Marrakech, Maroc. Trouvez facilement les codes pour les quartiers, les zones administratives et plus encore."
         },
         {
