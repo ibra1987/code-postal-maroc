@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="w-full flex flex-col items-center justify-items-center min-h-screen ">
-        <div className="w-full bg-red-600 flex flex-col justify-center items-center  px-3 md:px-20 py-48">
+        <div className="w-full bg-red-600 flex flex-col justify-center items-center  px-3 md:px-20 py-32">
          
           <Hero/>
           <SearchForm/>
