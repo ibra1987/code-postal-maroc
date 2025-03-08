@@ -1,6 +1,4 @@
-import { retroviseurAd } from "@/assets/ads"
-import Image from "next/image"
-import Link from "next/link"
+
 
 
 const Hero = () => {
