@@ -10,18 +10,18 @@ const Nav = () => {
        <nav className=" hidden lg:flex">
       <ul className="flex justify-center items-center gap-4">
         <li>
-          <Link className=" border-b border-b-transparent hover:border-b-red-400 py-2" href="/">
+          <Link className=" border-b border-b-transparent hover:border-b-gray-200 py-1" href="/">
             Accueil
           </Link>
         </li>
         <li>
-          <Link className=" border-b border-b-transparent hover:border-b-red-400 py-2" href="/regions-postales-maroc">
+          <Link className=" border-b border-b-transparent hover:border-b-gray-200 py-1" href="/regions-postales-maroc">
             
           régions Postales
                     </Link>
         </li>
         <li>
-          <Link className=" border-b border-b-transparent hover:border-b-red-400 py-2" href="/contact">
+          <Link className=" border-b border-b-transparent hover:border-b-gray-200 py-1" href="/contact">
             
             Contact
           </Link>

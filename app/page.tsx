@@ -4,31 +4,46 @@ import Provinces from "./components/Provinces";
 import { Metadata } from "next";
 import Apropos from "./components/Apropos";
 import SearchForm from "./components/SearchForm";
-
-
-
-
+import Link from "next/link";
+import Image from "next/image";
+import { deskLight, retroviseurAd } from "@/assets/ads";
 
 export const metadata: Metadata = {
-  title: 'Trouver facilement les Codes Postaux au Maroc | Guide Complet des Codes Postaux',
-  description: 'Explorez une base de données complète des codes postaux au Maroc. Recherchez par ville, région ou agence postale pour trouver rapidement le code postal dont vous avez besoin.',
-}
+  title:
+    "Trouver facilement les Codes Postaux au Maroc | Guide Complet des Codes Postaux",
+  description:
+    "Explorez une base de données complète des codes postaux au Maroc. Recherchez par ville, région ou agence postale pour trouver rapidement le code postal dont vous avez besoin.",
+};
 
 export default function Home() {
   return (
     <div className="w-full flex flex-col items-center justify-items-center min-h-screen ">
-        <div className="w-full bg-red-600 flex flex-col justify-center items-center  px-3 md:px-20 py-32">
-         
-          <Hero/>
-          <SearchForm/>
-          
-        </div>
-       <div className="w-full flex flex-col justify-start items-center  px-3 md:px-20 gap-10">
-       <Regions/>
-        
-        <Provinces/>
-        <Apropos/>
-        </div>
+      <div className="w-full flex flex-col justify-center items-center  px-3 md:px-20 py-32">
+        <Hero />
+        <SearchForm />
+      </div>
+      <Link href={retroviseurAd.link}>
+        <Image
+          src={retroviseurAd.image}
+          width={500}
+          height={500}
+          alt={retroviseurAd.title}
+        />
+      </Link>
+      <div className="w-full flex flex-col justify-start items-center  px-3 md:px-20 gap-10">
+        <Regions />
+
+        <Provinces />
+        <Link href={deskLight.link}>
+        <Image
+          src={deskLight.image}
+          width={500}
+          height={500}
+          alt={deskLight.title}
+        />
+      </Link>
+        <Apropos />
+      </div>
     </div>
   );
 }

@@ -39,7 +39,7 @@ export default function RootLayout({
         {/**propellar ads interstitial*/}
 
      
-        <div className="w-full bg-red-600 px-3 md:px-20">
+        <div className="w-full  px-3 md:px-20">
         <Header/>
         </div>
         <div className=" mx-auto flex flex-col justify-start items-center w-full   ">
