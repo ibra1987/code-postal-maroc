@@ -15,21 +15,28 @@ async function SearchPage({searchParams}:{searchParams:Promise<{search:string}>}
 
     const normalize =( str: string) => str.replace(/\s+/g, " ").trim().toLowerCase();
     const query = normalize(decodeURIComponent(search));
-    
-
-
-  
-    const cleanSpace = (str: string) => str.toLowerCase().replace(/\s+/g, ''); // Remove spaces
-
     const minSubstringLength = 4;
-    const cleanQuery = cleanSpace(query);
     
-    const searchResults1 = codes.filter(record => {
+    const cleanSpace = (str: string) => str.toLowerCase().replace(/\s+/g, ''); // Remove spaces
+    const cleanQuery = cleanSpace(query);
+
+    const searchResults1 = codes.filter((record)=>{
       return (
         cleanSpace(record.AGENCE).includes(cleanQuery) ||
         record.NOUVEAU_CODE_POSTAL.toString().includes(cleanQuery) ||
         cleanSpace(record.PROVINCE).includes(cleanQuery) ||
-        cleanSpace(record.REGION_POSTALE).includes(cleanQuery) ||
+        cleanSpace(record.REGION_POSTALE).includes(cleanQuery) 
+      )
+    })
+
+
+  
+
+ 
+    
+    const searchResults2 = codes.filter(record => {
+      return (
+     
         (cleanQuery.length >= minSubstringLength &&
           (cleanSpace(record.AGENCE).includes(cleanQuery.slice(0, minSubstringLength)) ||
           cleanSpace(record.PROVINCE).includes(cleanQuery.slice(0, minSubstringLength)) ||
@@ -38,7 +45,7 @@ async function SearchPage({searchParams}:{searchParams:Promise<{search:string}>}
     });
     
 
-
+const searchResults = searchResults1.length >0 ? searchResults1 : searchResults2
 
     return (
         <main className="w-full flex min-h-screen flex-col items-center justify-start  pt-10 ">
@@ -51,7 +58,7 @@ async function SearchPage({searchParams}:{searchParams:Promise<{search:string}>}
         <div className="w-full  rounded   ">
 
           
-          {searchResults1.length >0 ? (
+          {searchResults.length >0 ? (
             <>
             <div className="w-full grid grid-cols-4 justify-items-center text-white p-2 bg-emerald-600 border ">
             <h3>région</h3>
@@ -59,7 +66,7 @@ async function SearchPage({searchParams}:{searchParams:Promise<{search:string}>}
             <h3>agence</h3>
             <h3>code postal</h3>
           </div>
-               {searchResults1?.map((record) => (
+               {searchResults?.map((record) => (
               <div key={record.NOUVEAU_CODE_POSTAL} className="grid grid-cols-4 justify-items-center bg-slate-200/60 p-2 text-sm md:text-base border-b   text-gray-600">
                 <span>{record.REGION_POSTALE}</span>
                 <span>{record.PROVINCE}</span>
