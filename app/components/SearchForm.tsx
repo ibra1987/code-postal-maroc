@@ -10,7 +10,7 @@ const SearchForm = () => {
   };
 
   return (
-    <div className="w-full md:w-4/5 flex flex-col justify-start items-center relative">
+    <div className="w-full  flex flex-col justify-start items-center relative">
       <form action={`/recherche?search=${searchInput}`} className="w-full md:w-4/5 border  p-1 rounded bg-gray-200 my-3 ">
         <div className="w-full flex justify-between items-center">
           <input
@@ -24,6 +24,7 @@ const SearchForm = () => {
           />
 
           <button
+            disabled={!searchInput}
             className="flex gap-2 items-center bg-green-600 text-white rounded py-2 px-2 md:px-6 hover:bg-green-700"
             type="submit"
           >

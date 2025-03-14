@@ -42,10 +42,10 @@ async function ParProvincePage({ params }: { params: Promise<{ provinceName: str
   ?? provinces[provinceName] 
   ?? provinces[provinceName.toUpperCase()]
   return (
-    <main className="w-full flex min-h-screen flex-col items-center justify-start px-3 md:p-20 ">
-      <h1 className="w-full text-left text-4xl font-bold mb-10">
+    <main className="w-full flex min-h-screen flex-col items-center justify-start pt-10 md:px-10 ">
+      <h1 className="w-full text-left text-2xl md:ext-4xl font-bold mb-10">
         Liste des codes postaux de la province
-        <span className="text-red-500 m-2 underline">
+        <span className="text-red-600 m-2 underline">
           {name}
         </span>
       </h1>
@@ -54,7 +54,7 @@ async function ParProvincePage({ params }: { params: Promise<{ provinceName: str
           <div key={data[0].NOUVEAU_CODE_POSTAL+"-"+index} className=" w-full border-b">
             <h3 className="w-full">
               <Link
-                className="hover:bg-red-500 hover:text-white w-full  px-2 flex justify-between rounded items-center p-2  "
+                className="hover:bg-red-600 hover:text-white w-full  px-2 flex justify-between rounded items-center p-2  "
                 href={`/agences/${reg.AGENCE.toLowerCase().replaceAll(" ","-")}`}
               >
                 <span>{reg.AGENCE}</span>

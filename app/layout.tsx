@@ -1,21 +1,12 @@
-import localFont from "next/font/local";
 import "./globals.css";
 import Header from "./components/header/Header";
 import Footer from "./components/Footer";
 import {GoogleAnalytics} from "@next/third-parties/google"
 import { Analytics } from "@vercel/analytics/react"
 import { Metadata } from "next";
+import { Inter } from "next/font/google"
+const inter = Inter({ subsets: ["latin"] })
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 
 export const metadata :Metadata  ={
@@ -34,15 +25,15 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
+        className={`${inter.className} antialiased relative bg-slate-100`}
       >
         {/**propellar ads interstitial*/}
 
-     
-        <div className="w-full  px-3 md:px-20">
+    
+        <div className="w-full  px-3 md:px-10 bg-slate-100   sticky top-0 z-50">
         <Header/>
         </div>
-        <div className=" mx-auto flex flex-col justify-start items-center w-full   ">
+        <div className="  mx-auto px-3 md:px-10 flex flex-col justify-start items-center w-full   ">
           
         {children}
         <Analytics/>

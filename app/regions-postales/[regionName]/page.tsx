@@ -72,7 +72,7 @@ export async function generateMetadata(
     }, {} as Record<string, Region[]>);
   if(!regionsCodes.length){
     return (
-      <main className="flex min-h-screen flex-col items-center justify-start px-3 md:p-20 ">
+      <main className="flex min-h-screen flex-col items-center justify-start  ">
         Aucune resulat correspond à votre recherche (:
       </main>
     )
@@ -111,7 +111,7 @@ export async function generateMetadata(
     dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} 
     />
      
-     <main className="w-full flex min-h-screen flex-col items-center justify-start px-3 md:p-20">
+     <main className="w-full flex min-h-screen flex-col items-center justify-start pt-10 md:px-10 ">
         <h1 className="w-full text-left text-4xl font-bold">Liste des codes postaux de la region 
           <span className=" mx-2">
         {regionName?.toUpperCase() }

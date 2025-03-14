@@ -54,7 +54,7 @@ async function ParCodePostalPage({params}:{params:Promise<{code:string}>}) {
       </main>
     }
   return (
-    <main className="w-full flex min-h-screen flex-col items-center justify-start">
+    <main className="w-full flex min-h-screen flex-col items-center justify-start pt-10 md:px-10">
      <h1 className="w-full text-center text-4xl font-bold mb-10">
        Le code postal
         <span className="text-red-500 m-2 underline">

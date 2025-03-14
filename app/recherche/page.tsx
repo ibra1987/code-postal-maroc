@@ -58,7 +58,7 @@ const searchResults2 = codes
 const searchResults = searchResults1.length > 0 ? searchResults1 : searchResults2
 
     return (
-        <main className="w-full flex min-h-screen flex-col items-center justify-start  px-3 md:px-20 ">
+        <main className="w-full flex min-h-screen flex-col items-center justify-start  pt-10 ">
             <div className="w-full flex justify-start gap-3 text-gray-500 mt-10 ">
                <h3 className="text-xl">
                 Resultats de recherche pour : <span className="font-bold">{search}</span>
@@ -67,14 +67,14 @@ const searchResults = searchResults1.length > 0 ? searchResults1 : searchResults
             </div>
         <div className="w-full bg-white rounded   ">
 
-          <div className="w-full grid grid-cols-4 justify-items-center text-white p-2 bg-green-500 border ">
+          <div className="w-full grid grid-cols-4 justify-items-center text-white p-2 bg-emerald-600 border ">
             <h3>région</h3>
             <h3>province</h3>
             <h3>agence</h3>
             <h3>code postal</h3>
           </div>
           {searchResults.map((record) => (
-            <div key={record.NOUVEAU_CODE_POSTAL} className="grid grid-cols-4 justify-items-center p-2 text-sm md:text-base border-b   text-gray-600">
+            <div key={record.NOUVEAU_CODE_POSTAL} className="grid grid-cols-4 justify-items-center bg-slate-200/60 p-2 text-sm md:text-base border-b   text-gray-600">
               <span>{record.REGION_POSTALE}</span>
               <span>{record.PROVINCE}</span>
               <span>{record.AGENCE}</span>

@@ -45,14 +45,12 @@ async function ParAgenceNamePage({params}:{params:Promise<{agenceName:string}>})
   const agence = Object.keys(agences).find(ag=>ag === name )
 
     if(!agence) {
-      return   <main className="flex min-h-screen flex-col items-center justify-start px-3 md:p-20 ">
+      return   <main className="pt-10 flex min-h-screen flex-col items-center justify-start  ">
         Aucune resulat correspond à votre recherche (:
       </main>
     }
   return (
-    <main className="w-full flex min-h-screen flex-col items-center justify-start px-3 md:p-20 ">
-      
-
+    <main className="pt-10 w-full flex min-h-screen flex-col items-center justify-start md:px-10 ">
      <h1 className="w-full text-center text-2xl md:text-4xl font-bold mb-10">
         Code Postal de l&apos;agence
         <span className="text-red-500 m-2 underline">

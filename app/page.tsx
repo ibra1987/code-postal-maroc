@@ -18,30 +18,16 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="w-full flex flex-col items-center justify-items-center min-h-screen ">
-      <div className="w-full flex flex-col justify-center items-center  px-3 md:px-20 py-32">
+      <div className="w-full flex flex-col justify-center items-center  rounded py-24   bg-gradient-to-b from-red-600 via-red-900 to-red-500 px-3 md:px-24 lg:px-48">
         <Hero />
         <SearchForm />
       </div>
-      <Link href={retroviseurAd.link}>
-        <Image
-          src={retroviseurAd.image}
-          width={500}
-          height={500}
-          alt={retroviseurAd.title}
-        />
-      </Link>
-      <div className="w-full flex flex-col justify-start items-center  px-3 md:px-20 gap-10">
+    
+      <div className="w-full flex flex-col justify-start items-center   gap-10">
         <Regions />
 
         <Provinces />
-        <Link href={deskLight.link}>
-        <Image
-          src={deskLight.image}
-          width={500}
-          height={500}
-          alt={deskLight.title}
-        />
-      </Link>
+        
         <Apropos />
       </div>
     </div>

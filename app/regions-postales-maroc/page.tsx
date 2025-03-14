@@ -16,7 +16,7 @@ const regionsPostales =  codes.reduce((acc: Record<string, Region[]>, reg: Regio
 
 function RegionsPostalesMarocPage() {
   return (
-    <main className="w-full flex min-h-screen flex-col items-center justify-start px-3 md:px-20 py-20">
+    <main className="w-full flex min-h-screen flex-col items-center justify-start px-3 pt-10 md:px-10">
 
      <h1 className="w-full text-left text-4xl font-black">
           Liste des régions postales au Maroc

@@ -38,8 +38,8 @@ const Provinces = () => {
   }, []);
 
   return (
-    <div className="w-full flex flex-col justify-start items-start gap-8 ">
-      <h2 className="  font-black text-3xl m-2 text-gray-700">
+    <div className="w-full flex flex-col justify-start items-start gap-8 bg-slate-300/10 border p-3 md:p-10 rounded ">
+      <h2 className="w-full text-center  font-black text-3xl m-2 text-gray-700">
         Toutes les provinces postales au Maroc
       </h2>
 
@@ -53,24 +53,24 @@ const Provinces = () => {
       ].map((provinceGroup, groupIndex) => (
         <div
           key={`province-group-${groupIndex}`}
-          className={`parent-container w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 text-gray-800 border-b p-6 rounded-md ${
+          className={`parent-container w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-1 text-gray-800 border-b p-6 rounded-md ${
             visibleStates[groupIndex] ? "opacity-0 animate-fadeIn" : "opacity-0"
           }`}
         >
           {provinceGroup.map((province, index) => (
             <div
               key={provinces[province][0].NOUVEAU_CODE_POSTAL + "-" + index}
-              className="p-2 flex gap-2 justify-start items-center rounded"
+              className="w-full p-1 flex gap-1 justify-centter bg-gray-200 items-center rounded"
             >
-              <div className="p-2 bg-red-50 rounded">
+              <div className="p-1 bg-emerald-600 rounded">
 
-              <MapPinHouse color="red" size={12} />
+              <MapPinHouse className="text-white" size={12} />
               </div>
               <Link
                 href={`/provinces/${province
                   .toLowerCase()
                   .replaceAll(" ", "-")}`}
-                className="hover:underline font-medium "
+                className="hover:underline "
               >
                 {province.toLowerCase().charAt(0).toUpperCase() +
                   province.toLowerCase().slice(1)}
