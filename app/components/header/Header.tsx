@@ -11,7 +11,6 @@ const Header = () => {
          <div className="w-full  gap-6 flex flex-col md:flex-row justify-center md:justify-between items-center ">
               <div className="flex w-full justify-between items-center">
                   <Logo/>
-               
            
                <Nav/>
               </div>

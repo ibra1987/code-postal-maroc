@@ -4,13 +4,12 @@ import { ChangeEvent, useState } from "react";
 
 const SearchForm = () => {
   const [searchInput, setSearchInput] = useState<string>("");
-
   const onchange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e.target.value);
   };
 
   return (
-    <div className="w-full  flex flex-col justify-start items-center relative">
+    <div className="w-full flex flex-col justify-start items-center relative">
       <form action={`/recherche?search=${searchInput}`} className="w-full md:w-4/5 border  p-1 rounded bg-gray-200 my-3 ">
         <div className="w-full flex justify-between items-center">
           <input
