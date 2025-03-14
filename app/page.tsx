@@ -4,9 +4,7 @@ import Provinces from "./components/Provinces";
 import { Metadata } from "next";
 import Apropos from "./components/Apropos";
 import SearchForm from "./components/SearchForm";
-import Link from "next/link";
-import Image from "next/image";
-import { deskLight, retroviseurAd } from "@/assets/ads";
+
 
 export const metadata: Metadata = {
   title:
