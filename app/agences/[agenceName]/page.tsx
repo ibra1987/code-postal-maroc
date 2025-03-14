@@ -79,10 +79,10 @@ async function ParAgenceNamePage({params}:{params:Promise<{agenceName:string}>})
 
         </div>
       </div>
-      <div className="w-full flex flex-col justify-start items-start">
+      <div className="w-full flex flex-col gap-4 justify-start items-start">
         <h2 className="text-2xl font-bold">Resultas similaires</h2>
         <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 ">
-        <div className="w-full rounded border p-4 bg-emerald-600 text-white">
+        <div className="w-full rounded border p-4  text-gray-700">
         {provinces[agences[agence as keyof typeof agences][0].PROVINCE as keyof typeof provinces].slice(0,4).map((res)=>(
             <div className="w-full flex justify-between items-center  gap-2 " key={res.AGENCE}>
                   <span>
@@ -94,7 +94,7 @@ async function ParAgenceNamePage({params}:{params:Promise<{agenceName:string}>})
               </div>
            ))}
         </div>
-            <div className="w-full rounded border p-4 bg-emerald-600 text-white">
+            <div className="w-full rounded border p-4  text-gray-700">
             {provinces[agences[agence as keyof typeof agences][0].PROVINCE as keyof typeof provinces].slice(4,8).map((res)=>(
             <div className="w-full flex justify-between items-center gap-2 " key={res.AGENCE}>
                   <span>
@@ -106,7 +106,7 @@ async function ParAgenceNamePage({params}:{params:Promise<{agenceName:string}>})
               </div>
            ))}
             </div>
-           <div className="w-full rounded border p-4 bg-emerald-600 text-white">
+           <div className="w-full rounded border p-4  text-gray-700">
            {provinces[agences[agence as keyof typeof agences][0].PROVINCE as keyof typeof provinces].slice(8,12).map((res)=>(
             <div className="w-full flex justify-between items-center  gap-2 " key={res.AGENCE}>
                   <span>

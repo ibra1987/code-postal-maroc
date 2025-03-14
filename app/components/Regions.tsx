@@ -18,7 +18,7 @@ const regionsPostales = codes.reduce(
 
 const Regions = () => {
   return (
-    <div className="w-full flex flex-col gap-8 mt-16">
+    <div className="w-full flex flex-col gap-8 mt-16 relative">
       <h2 className=" w-full text-center font-black text-gray-700 text-3xl m-2">
         Les règions postales au Maroc
       </h2>
@@ -58,6 +58,7 @@ const Regions = () => {
           );
         })}
       </div>
+      
     </div>
   );
 };
