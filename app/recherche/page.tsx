@@ -60,15 +60,15 @@ const searchResults = searchResults1.length >0 ? searchResults1 : searchResults2
           
           {searchResults.length >0 ? (
             <>
-            <div className="w-full grid grid-cols-4 justify-items-center text-white p-2 bg-emerald-600 border ">
-            <h3>région</h3>
+            <div className="w-full grid grid-cols-3 md:grid-cols-4 justify-items-center text-white p-2 bg-slate-600 border rounded ">
+            <h3 className="hidden  md:block">région</h3>
             <h3>province</h3>
             <h3>agence</h3>
             <h3>code postal</h3>
           </div>
                {searchResults?.map((record) => (
-              <div key={record.NOUVEAU_CODE_POSTAL} className="grid grid-cols-4 justify-items-center bg-slate-200/60 p-2 text-sm md:text-base border-b   text-gray-600">
-                <span>{record.REGION_POSTALE}</span>
+              <div key={record.NOUVEAU_CODE_POSTAL} className="grid grid-cols-3 md:grid-cols-4 justify-items-center  bg-slate-200/60 p-2 text-sm md:text-base border-b border-b-blue-100 odd:bg-slate-200/20   text-gray-600">
+                <span className="hidden md:inline-block">{record.REGION_POSTALE}</span>
                 <span>{record.PROVINCE}</span>
                 <span>{record.AGENCE}</span>
                 <span>{record.NOUVEAU_CODE_POSTAL}</span>
