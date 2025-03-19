@@ -21,6 +21,7 @@ function RegionsPostalesMarocPage() {
      <h1 className="w-full text-left text-4xl font-black">
           Liste des régions postales au Maroc
      </h1>
+     <div id="container-9e7f6cf20fea09d635265a8131dda125"></div>
     
       <p className="w-full text-left text-xl text-gray-700 my-4">
           Les régions postales au Maroc sont divisées en 12 régions.

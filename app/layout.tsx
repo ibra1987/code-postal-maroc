@@ -40,7 +40,7 @@ export default function RootLayout({
         <Header/>
         </div>
         <div className="  mx-auto px-3 md:px-10 flex flex-col justify-start items-center w-full   ">
-        <div id="container-9e7f6cf20fea09d635265a8131dda125"></div>
+      
 
         {children}
         <Analytics/>

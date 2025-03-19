@@ -49,6 +49,7 @@ const searchResults = searchResults1.length >0 ? searchResults1 : searchResults2
 
     return (
         <main className="w-full flex min-h-screen flex-col items-center justify-start  pt-10 ">
+              <div id="container-9e7f6cf20fea09d635265a8131dda125"></div>
             <div className="w-full flex justify-start gap-3 text-gray-500 mt-10 ">
                <h3 className="text-xl">
                 Resultats de recherche pour : <span className="font-bold">{search}</span>
