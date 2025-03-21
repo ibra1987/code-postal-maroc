@@ -5,7 +5,6 @@ import {GoogleAnalytics} from "@next/third-parties/google"
 import { Analytics } from "@vercel/analytics/react"
 import { Metadata } from "next";
 import { Inter } from "next/font/google"
-import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] })
 
 
@@ -25,11 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <Script
-          strategy="lazyOnload"
-          data-cfasync="false"
-          src="//pl26152001.effectiveratecpm.com/9e7f6cf20fea09d635265a8131dda125/invoke.js"
-        />
+     
       <body
         className={`${inter.className} antialiased relative bg-slate-100`}
       >
