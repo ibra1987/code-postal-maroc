@@ -1,7 +1,6 @@
 "use server"
 
 import dbClient from "@/db/client"
-import { strict } from "assert"
 import { WithId } from "mongodb";
 import OpenAI from "openai";
 
