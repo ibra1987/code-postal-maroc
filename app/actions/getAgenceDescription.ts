@@ -18,7 +18,7 @@ interface ActionResponse<T> {
     data:T;
     message?:string
 }
-export async function  getAgenceDescription(name:string,province:string):Promise<ActionResponse<AgenceDescription | null>> {
+export async function  getAgenceDescription(name:string):Promise<ActionResponse<AgenceDescription | null>> {
     const client =  await  dbClient()
     
 
