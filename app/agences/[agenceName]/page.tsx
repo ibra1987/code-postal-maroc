@@ -51,8 +51,7 @@ async function ParAgenceNamePage({params}:{params:Promise<{agenceName:string}>})
         Aucune resulat correspond à votre recherche (:
       </main>
     }
-      const province =  agences[agence as keyof typeof agences][0].PROVINCE
-      const descResponse = await getAgenceDescription(name,province)
+      const descResponse = await getAgenceDescription(name)
     
   return (
     <main className="pt-10 w-full flex min-h-screen flex-col gap-6 items-center justify-start md:px-10 ">
