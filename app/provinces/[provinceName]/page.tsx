@@ -5,10 +5,7 @@ import { Metadata } from "next";
 import { getProvinceMetadata } from "@/assets/metadata";
 
 
-// We&apos;ll prerender only the params from `generateStaticParams` at build time.
-// If a request comes in for a path that hasn&apos;t been generated,
-// Next.js will server-render the page on-demand.
-export const dynamicParams = true; // or false, to 404 on unknown paths
+
 type Props = {
   params: Promise<{ provinceName: string }>
 }
@@ -18,12 +15,11 @@ export async function generateMetadata(
   // read route params
   const provinceName = (await params).provinceName
  
-
-  const meta = getProvinceMetadata(provinceName) 
-  ?? getProvinceMetadata(provinceName.toUpperCase().replaceAll("-"," "))
-   ?? getProvinceMetadata(provinceName.toUpperCase())
-   ?? getProvinceMetadata(provinceName.charAt(0).toUpperCase()+provinceName.slice(1))
-  return {
+  
+  const meta = getProvinceMetadata(provinceName) ?? getProvinceMetadata(provinceName.charAt(0).toUpperCase()+provinceName.slice(1))
+  
+ console.log(provinceName.toLowerCase().charAt(0).toUpperCase()+provinceName.slice(1))
+   return {
     title:meta?.title,
     description:`${meta?.description} - Code Postal Maroc | ${provinceName}`,
    
@@ -41,6 +37,8 @@ async function ParProvincePage({ params }: { params: Promise<{ provinceName: str
   const data = provinces[name] 
   ?? provinces[provinceName] 
   ?? provinces[provinceName.toUpperCase()]
+
+
   return (
     <main className="w-full flex min-h-screen flex-col items-center justify-start pt-10 md:px-10 ">
       <h1 className="w-full text-left text-2xl md:ext-4xl font-bold mb-10">

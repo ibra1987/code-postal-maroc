@@ -2,7 +2,13 @@ import codes from "@/assets/codes";
 import { Region } from "../regions-postales/[regionName]/page";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { Metadata } from "next";
 
+
+export const metadata : Metadata = {
+  title:"Code Postal Maroc | Toutes Les Règions Postales au Maroc",
+  description:"La liste des règions postale au Maroc. Les régions postales au Maroc sont divisées en 12 régions."
+}
 
 
 const regionsPostales =  codes.reduce((acc: Record<string, Region[]>, reg: Region) => {

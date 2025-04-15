@@ -1,9 +1,11 @@
 import codes from "@/assets/codes"
+import { Metadata } from "next";
 
 
-
-
-
+export const metadata : Metadata = {
+  title:"Trouvez facilement le code postal de n'importe quelle localité, ville ou province au Maroc.",
+  description:"Un outil de recherche facile et efficace des codes postaux au Maroc. "
+}
 
 async function SearchPage({searchParams}:{searchParams:Promise<{search:string}>}){
     const {search} = await searchParams

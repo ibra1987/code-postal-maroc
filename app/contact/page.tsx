@@ -2,8 +2,13 @@
 
 import { useActionState } from "react"
 import { sendMessage } from "../actions/sendMessage"
+import { Metadata } from "next"
 
 
+export const  metadata : Metadata = {
+  title:"Code Postal Maroc | Page de contact",
+  description:"Utilisez le fomrulaires pour nous contacter. Nous sommes ouvert à toute suggèstion, remarque ou demande de partenariat."
+}
 
 function ContactPage() {
   

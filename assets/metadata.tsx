@@ -94,7 +94,7 @@ export function getProvinceMetadata(province:string) {
           description: "Découvrez les codes postaux de Khémisset, Maroc. Trouvez les informations exactes pour toutes les zones."
         },
         {
-          province: "Sidi kacem",
+          province: "Sidi-kacem",
           title: "Guide des Codes Postaux à Sidi Kacem",
           description: "Accédez à la liste des codes postaux pour Sidi Kacem, Maroc. Trouvez facilement le code dont vous avez besoin."
         },
@@ -109,12 +109,12 @@ export function getProvinceMetadata(province:string) {
           description: "Trouvez les codes postaux d’Azilal, Maroc. Guide complet pour toutes les localités."
         },
         {
-          province: "Beni mellal",
+          province: "Beni-mellal",
           title: "Codes Postaux à Béni Mellal - Annuaire",
           description: "Découvrez tous les codes postaux de Béni Mellal, Maroc. Informations à jour pour chaque zone."
         },
         {
-          province: "El jadida",
+          province: "El-jadida",
           title: "Liste des Codes Postaux à El Jadida",
           description: "Consultez les codes postaux pour El Jadida, Maroc. Trouvez rapidement les informations nécessaires."
         },
@@ -149,7 +149,7 @@ export function getProvinceMetadata(province:string) {
           description: "Consultez les codes postaux de Sefrou, Maroc. Trouvez rapidement les informations nécessaires."
         },
         {
-          province: "Al hoceima",
+          province: "Al-hoceima",
           title: "Codes Postaux à Al Hoceïma - Guide Complet",
           description: "Découvrez les codes postaux d’Al Hoceïma, Maroc. Informations fiables pour toutes les localités."
         },
@@ -169,7 +169,7 @@ export function getProvinceMetadata(province:string) {
           description: "Découvrez les codes postaux de Taza, Maroc. Guide complet et à jour."
         },
         {
-          province: "Moulay yacoub",
+          province: "Moulay-yacoub",
           title: "Codes Postaux à Moulay Yacoub - Annuaire",
           description: "Consultez les codes postaux de Moulay Yacoub, Maroc. Informations précises pour toutes les zones."
         },
@@ -179,12 +179,12 @@ export function getProvinceMetadata(province:string) {
           description: "Découvrez les codes postaux de Marrakech, Maroc. Trouvez facilement les informations nécessaires."
         },
         {
-          province: "Al haouz",
+          province: "Al-haouz",
           title: "Liste des Codes Postaux à Al Haouz",
           description: "Explorez les codes postaux pour Al Haouz, Maroc. Informations fiables et détaillées."
         },
         {
-          province: "El kelaa des sraghna",
+          province: "El-kelaa-des-sraghna",
           title: "Codes Postaux à El Kelaâ des Sraghna",
           description: "Consultez les codes postaux de El Kelaâ des Sraghna, Maroc. Guide pratique pour toutes les zones."
         },
@@ -214,7 +214,7 @@ export function getProvinceMetadata(province:string) {
           description: "Consultez les codes postaux de Meknès, Maroc. Informations à jour pour toutes les zones."
         },
         {
-          province: "El hajeb",
+          province: "El-hajeb",
           title: "Codes Postaux à El Hajeb - Trouvez Facilement",
           description: "Découvrez les codes postaux de El Hajeb, Maroc. Informations fiables et précises."
         },
@@ -234,7 +234,7 @@ export function getProvinceMetadata(province:string) {
             description: "Trouvez rapidement les codes postaux des localités de la province de Khénifra, Maroc." 
           },
           { 
-            province: "Oujda Angad", 
+            province: "Oujda-angad", 
             title: "Codes postaux pour Oujda-Angad", 
             description: "Recherchez les codes postaux pour les quartiers et villages de la région d'Oujda-Angad."
           },
@@ -269,12 +269,12 @@ export function getProvinceMetadata(province:string) {
             description: "Découvrez les codes postaux des localités de la province de Boujdour."
           },
           { 
-            province: "Es Semara", 
+            province: "Es-semara", 
             title: "Liste des codes postaux à Es-Semara", 
             description: "Trouvez rapidement les codes postaux d'Es-Semara, Maroc."
           },
           { 
-            province: "Oued Ed-Dahab", 
+            province: "Oued-ed-dahab", 
             title: "Codes postaux pour Oued Ed-Dahab", 
             description: "Recherchez les codes postaux des différentes zones de Oued Ed-Dahab."
           },
@@ -284,7 +284,7 @@ export function getProvinceMetadata(province:string) {
             description: "Accédez à une liste détaillée des codes postaux pour Aousserd."
           },
           { 
-            province: "Agadir Ida Ou Tanane", 
+            province: "Agadir-ida-ou-tanane", 
             title: "Codes postaux d'Agadir Ida Ou Tanane", 
             description: "Trouvez les codes postaux des localités d'Agadir Ida Ou Tanane."
           },
@@ -294,12 +294,12 @@ export function getProvinceMetadata(province:string) {
             description: "Découvrez les codes postaux des zones de la province de Guelmim."
           },
           { 
-            province: "Assa Zag", 
+            province: "Assa-zag", 
             title: "Codes postaux de la province d'Assa-Zag", 
             description: "Recherchez les codes postaux pour Assa-Zag et ses localités."
           },
           { 
-            province: "Tan Tan", 
+            province: "Tan-tan", 
             title: "Codes postaux des zones de Tan-Tan", 
             description: "Accédez aux codes postaux pour les quartiers de la province de Tan-Tan."
           },
@@ -314,17 +314,17 @@ export function getProvinceMetadata(province:string) {
             description: "Recherchez les codes postaux des zones et quartiers de Tiznit."
           },
           { 
-            province: "Inezgane Ait Melloul", 
+            province: "Inezgane-ait-melloul", 
             title: "Codes postaux d'Inezgane Aït Melloul", 
             description: "Découvrez les codes postaux des quartiers d'Inezgane Aït Melloul."
           },
           { 
-            province: "Chtouka Ait Baha", 
+            province: "Chtouka-ait-baha", 
             title: "Codes postaux pour Chtouka Aït Baha", 
             description: "Obtenez facilement les codes postaux des localités de Chtouka Aït Baha."
           },
           { 
-            province: "Tanger Assilah", 
+            province: "Tanger-assilah", 
             title: "Codes postaux de Tanger-Assilah", 
             description: "Recherchez les codes postaux des quartiers et zones de Tanger-Assilah."
           },
@@ -344,7 +344,7 @@ export function getProvinceMetadata(province:string) {
             description: "Recherchez les codes postaux pour les zones et quartiers de Larache."
           },
           { 
-            province: "Fahs Anjra", 
+            province: "Fahs-anjra", 
             title: "Codes postaux de la province de Fahs Anjra", 
             description: "Trouvez les codes postaux des localités de Fahs Anjra, Maroc."
           }

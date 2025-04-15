@@ -1,5 +1,10 @@
 import Link from "next/link";
+import { Metadata } from "next";
 
+export const metadata : Metadata = {
+  title:"Code Postal Maroc | Politique de confidentialité",
+  description: "Vous trouverz sur cette page tous ce qui concerne notre politique de confidentialité vis à vis de nos visiteurs."
+}
 function page() {
   return (
     <main className="w-full flex min-h-screen flex-col items-start justify-start px-4 md:px-20 py-10 gap-4">

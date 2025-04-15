@@ -51,7 +51,7 @@ async function ParAgenceNamePage({params}:{params:Promise<{agenceName:string}>})
         Aucune resulat correspond à votre recherche (:
       </main>
     }
-  const province =  agences[agence as keyof typeof agences][0].PROVINCE
+      const province =  agences[agence as keyof typeof agences][0].PROVINCE
       const descResponse = await getAgenceDescription(name,province)
     
   return (
