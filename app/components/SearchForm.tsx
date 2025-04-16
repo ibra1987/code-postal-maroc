@@ -4,9 +4,50 @@ import { ChangeEvent, useState } from "react";
 
 const SearchForm = () => {
   const [searchInput, setSearchInput] = useState<string>("");
+  // const [searchSuggestions, setSearchSuggestions] = useState<string[]>([]);
+  // const [isLoading, setIsLoading] = useState<boolean>(false);
   const onchange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e.target.value);
+   
+
   };
+  // const normalize =( str: string) => str.replace(/\s+/g, " ").trim().toLowerCase();
+
+  // const getSuggestions = (input:string)=>{
+  //   const query = normalize(decodeURIComponent(input));
+  //   const minSubstringLength = 4;
+    
+  //   const cleanSpace = (str: string) => str.toLowerCase().replace(/\s+/g, ''); // Remove spaces
+  //   const cleanQuery = cleanSpace(query);
+
+  //   const searchResults1 =  codes.filter((record)=>{
+  //     return (
+  //       cleanSpace(record.AGENCE).includes(cleanQuery) ||
+  //       record.NOUVEAU_CODE_POSTAL.toString().includes(cleanQuery) ||
+  //       cleanSpace(record.PROVINCE).includes(cleanQuery) ||
+  //       cleanSpace(record.REGION_POSTALE).includes(cleanQuery) 
+  //     )
+  //   })
+
+
+  
+
+ 
+    
+  //   const searchResults2 =  codes.filter(record => {
+  //     return (
+     
+  //       (cleanQuery.length >= minSubstringLength &&
+  //         (cleanSpace(record.AGENCE).includes(cleanQuery.slice(0, minSubstringLength)) ||
+  //         cleanSpace(record.PROVINCE).includes(cleanQuery.slice(0, minSubstringLength)) ||
+  //         cleanSpace(record.REGION_POSTALE).includes(cleanQuery.slice(0, minSubstringLength))))
+  //     );
+  //   });
+    
+
+  //   const searchResults = searchResults1.length >0 ? searchResults1 : searchResults2
+  //   return searchResults.map((record)=>record.AGENCE)
+  // }
 
   return (
     <div className="w-full flex flex-col justify-start items-center relative">
@@ -34,6 +75,17 @@ const SearchForm = () => {
           </button>
         </div>
       </form>
+     
+        {/* {searchSuggestions.length > 0 && (
+           <div className=" max-h-[100px] w-full md:w-4/5 border p-2 rounded overflow-auto bg-white flex  flex-col">
+         { searchSuggestions.map((suggestion,index)=>(
+            <span key={suggestion+"-"+index}>
+              {suggestion}
+            </span>
+          ))}
+          </div>
+        )} */}
+     
       
     
     </div>

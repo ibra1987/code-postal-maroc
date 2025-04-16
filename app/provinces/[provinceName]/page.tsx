@@ -49,10 +49,10 @@ async function ParProvincePage({ params }: { params: Promise<{ provinceName: str
       </h1>
       {data?.map((reg: Region,index) => {
         return (
-          <div key={data[0].NOUVEAU_CODE_POSTAL+"-"+index} className=" w-full border-b">
+          <div key={data[0].NOUVEAU_CODE_POSTAL+"-"+index} className=" w-full border-b even:bg-gray-200">
             <h3 className="w-full">
               <Link
-                className="hover:bg-red-600 hover:text-white w-full  px-2 flex justify-between rounded items-center p-2  "
+                className="hover:bg-red-600  hover:text-white w-full   flex justify-between rounded items-center p-3  "
                 href={`/agences/${reg.AGENCE.toLowerCase().replaceAll(" ","-")}`}
               >
                 <span>{reg.AGENCE}</span>
