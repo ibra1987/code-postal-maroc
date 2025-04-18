@@ -367,7 +367,7 @@ export function getCodeMetaData(code:string) {
 export function getAgenceMetaData(agence:string){
 const  regionPostal = codes.find((reg)=> reg.AGENCE === agence.toUpperCase())
   return {
-    title: `${agence} | Code Postal Maroc`,
+    title: `Code Postal ${agence} | Code Postal Maroc`,
     description:`Le code postal de ${agence}. ${agence} 
             se trouve dans la province postale de ${regionPostal?.PROVINCE.toLowerCase()}, située  dans la région postale de ${regionPostal?.REGION_POSTALE.toLowerCase()}` 
   }
