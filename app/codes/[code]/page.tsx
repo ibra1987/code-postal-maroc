@@ -65,6 +65,8 @@ async function ParCodePostalPage({params}:{params:Promise<{code:string}>}) {
           {foundCode}
         </span>
       </h1>
+      <Link className="my-10" href='https://afflat3e1.com/trk/lnk/CDD99D98-5252-4D03-A2C4-E80015E98115/?o=28202&c=179234&a=236088&k=B4E14A7142777DCF98B50B838500C109&l=30905'><Image alt="survey" src='https://maxbounty.com/resources/getimage.asp?a=236088&m=13878&o=28202&i=179234.dat' width={350} height={350}/ > </Link>
+
       <div className="w-full flex flex-col justify-center items-center   ">
         <h2 className="w-full  text-center font-black text-3xl text-red-500 mb-6">
            Agence: {codePostaux[foundCode as keyof typeof codePostaux][0].AGENCE}

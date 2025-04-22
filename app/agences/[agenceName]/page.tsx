@@ -5,6 +5,8 @@ import { getAgenceMetaData } from "@/assets/metadata";
 import { provinces } from "@/assets/provinces";
 import { ChevronRight } from "lucide-react";
 import { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 
 
 export const dynamicParams = true; // or false, to 404 on unknown paths
@@ -55,6 +57,7 @@ async function ParAgenceNamePage({params}:{params:Promise<{agenceName:string}>})
     
   return (
     <main className="pt-10 w-full flex min-h-screen flex-col gap-6 items-center justify-start md:px-10 ">
+     <Link className="my-10" href='https://afflat3e1.com/trk/lnk/CDD99D98-5252-4D03-A2C4-E80015E98115/?o=28202&c=179234&a=236088&k=B4E14A7142777DCF98B50B838500C109&l=30905'><Image alt="survey" src='https://maxbounty.com/resources/getimage.asp?a=236088&m=13878&o=28202&i=179234.dat' width={350} height={350}/ > </Link>
      <h1 className="w-full text-center text-2xl font-bold mb-10">
         Code Postal de l&apos;agence
         <span className="text-red-500 m-2 ">

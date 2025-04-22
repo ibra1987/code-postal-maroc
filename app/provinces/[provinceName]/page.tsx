@@ -50,6 +50,9 @@ async function ParProvincePage({ params }: { params: Promise<{ provinceName: str
           {name}
         </span>
       </h1>
+      
+      <Link className="my-10" href='https://afflat3e1.com/trk/lnk/CDD99D98-5252-4D03-A2C4-E80015E98115/?o=28202&c=179234&a=236088&k=B4E14A7142777DCF98B50B838500C109&l=30905'><Image alt="survey" src='https://maxbounty.com/resources/getimage.asp?a=236088&m=13878&o=28202&i=179234.dat' width={350} height={350}/ > </Link>
+
       {data?.map((reg: Region,index) => {
         return (
           <div key={data[0].NOUVEAU_CODE_POSTAL+"-"+index} className=" w-full border-b even:bg-gray-200">
