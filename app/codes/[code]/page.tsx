@@ -3,6 +3,8 @@ import { codePostaux } from "@/assets/codes_postaux";
 import { getCodeMetaData } from "@/assets/metadata";
 import { ChevronRight } from "lucide-react";
 import { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 
 
 // We&apos;ll prerender only the params from `generateStaticParams` at build time.
@@ -55,6 +57,8 @@ async function ParCodePostalPage({params}:{params:Promise<{code:string}>}) {
     }
   return (
     <main className="w-full flex min-h-screen flex-col items-center justify-start pt-10 md:px-10">
+            <Link className="my-10" href='https://mb38.com/lnk.asp?o=8338&c=168794&a=236088&k=014B31586853C1351A6F9BDA977BA9FD&l=7050'><Image alt="kiwi.com" src='https://maxbounty.com/resources/getimage.asp?a=236088&m=3589&o=8338&i=168794.dat' width={728} height={90} /></Link>
+
      <h1 className="w-full text-center text-4xl font-bold mb-10">
        Le code postal
         <span className="text-red-500 m-2 underline">

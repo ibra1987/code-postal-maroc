@@ -3,6 +3,7 @@ import { getRegionMetadata } from "@/assets/metadata"
 import { regionsDescription } from "@/assets/regionsDescription"
 import { ChevronRight } from "lucide-react"
 import type { Metadata } from 'next'
+import Image from "next/image"
 
 import Link from "next/link"
 import Script from "next/script"
@@ -112,7 +113,8 @@ export async function generateMetadata(
     />
      
      <main className="w-full flex min-h-screen flex-col items-center justify-start pt-10 md:px-10 ">
-       
+     <Link className="my-10" href='https://mb38.com/lnk.asp?o=8338&c=168794&a=236088&k=014B31586853C1351A6F9BDA977BA9FD&l=7050'><Image alt="kiwi.com" src='https://maxbounty.com/resources/getimage.asp?a=236088&m=3589&o=8338&i=168794.dat' width={728} height={90} /></Link>
+
         <h1 className="w-full text-left text-4xl font-bold">Liste des codes postaux de la region 
           <span className=" mx-2">
         {regionName?.toUpperCase() }

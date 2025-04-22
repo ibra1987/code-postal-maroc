@@ -5,6 +5,7 @@ import {GoogleAnalytics} from "@next/third-parties/google"
 import { Analytics } from "@vercel/analytics/react"
 import { Metadata } from "next";
 import { Inter } from "next/font/google"
+
 const inter = Inter({ subsets: ["latin"] })
 
 
@@ -36,6 +37,7 @@ export default function RootLayout({
         </div>
         <div className="  mx-auto px-3 md:px-10 flex flex-col justify-start items-center w-full   ">
       
+
 
         {children}
         <Analytics/>
