@@ -9,18 +9,10 @@ import { agences } from '@/assets/agences'
 
 export default function sitemap(): MetadataRoute.Sitemap {
 
-    const regionSearchResults= codes.map((region:Region) =>{
-      return {
-        url: `${baseUrl}/recherche/?search=${encodeURIComponent(region.REGION_POSTALE.toLowerCase().trim()) }`,
-        changeFrequency: 'yearly' as const,
-      priority:1
-
-      
-      }
-    })
+   
     const localiteSearchResults= codes.map((localite:Region) => {
       return  {
-        url: `${baseUrl}/recherche/?search=${encodeURIComponent(localite.AGENCE.toLowerCase().trim())}}`,
+        url: `${baseUrl}/recherche/?search=${encodeURIComponent(localite.AGENCE.toLowerCase().trim())}`,
         changeFrequency: 'yearly' as const,
       priority:1
 
@@ -67,7 +59,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ..._codes,
     ..._provinces,
     ..._regions,
-    ...regionSearchResults,
     ...localiteSearchResults,
     {
       url: `${baseUrl}`,
