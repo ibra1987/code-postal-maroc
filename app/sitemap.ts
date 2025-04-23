@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     const regionSearchResults= codes.map((region:Region) =>{
       return {
-        url: `${baseUrl}/recherche/?search=${region.REGION_POSTALE.toLowerCase().trim()}`,
+        url: `${baseUrl}/recherche/?search=${encodeURIComponent(region.REGION_POSTALE.toLowerCase().trim()) }`,
         changeFrequency: 'yearly' as const,
       priority:1
 
@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
     const localiteSearchResults= codes.map((localite:Region) => {
       return  {
-        url: `${baseUrl}/recherche/?search=${localite.AGENCE.toLowerCase().trim()}`,
+        url: `${baseUrl}/recherche/?search=${encodeURIComponent(localite.AGENCE.toLowerCase().trim())}}`,
         changeFrequency: 'yearly' as const,
       priority:1
 
