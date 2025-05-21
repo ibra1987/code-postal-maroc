@@ -9,16 +9,16 @@ export const metadata : Metadata = {
   description:"Un outil de recherche facile et efficace des codes postaux au Maroc. "
 }
 
-async function SearchPage({searchParams}:{searchParams:Promise<{search:string}>}){
-    const {search} = await searchParams
+async function SearchPage({searchParams}:{searchParams:Promise<{q:string}>}){
+    const {q} = await searchParams
    
     
-    if(!search){
+    if(!q){
         return <main className="flex min-h-screen flex-col items-center justify-start">Aucune resulat correspond à votre recherche</main>
     }
 
     const normalize =( str: string) => str.replace(/\s+/g, " ").trim().toLowerCase();
-    const query = normalize(decodeURIComponent(search));
+    const query = normalize(decodeURIComponent(q));
     const minSubstringLength = 4;
     
     const cleanSpace = (str: string) => str.toLowerCase().replace(/\s+/g, ''); // Remove spaces
@@ -57,7 +57,7 @@ const searchResults = searchResults1.length >0 ? searchResults1 : searchResults2
 
             <div className="w-full flex justify-start gap-3 text-gray-500 mt-10 ">
                <h3 className="text-xl">
-                Resultats de recherche pour : <span className="font-bold">{search}</span>
+                Resultats de recherche pour : <span className="font-bold">{q}</span>
                </h3>
 
             </div>

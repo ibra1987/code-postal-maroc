@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
    
     const localiteSearchResults= codes.map((localite:Region) => {
       return  {
-        url: `${baseUrl}/recherche/?search=${encodeURIComponent(localite.AGENCE.toLowerCase().trim())}`,
+        url: `${baseUrl}/recherche?q=${encodeURIComponent(localite.AGENCE.toLowerCase().trim())}`,
         changeFrequency: 'yearly' as const,
       priority:1
 
