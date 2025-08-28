@@ -51,7 +51,7 @@ const SearchForm = () => {
 
   return (
     <div className="w-full flex flex-col justify-start items-center relative">
-      <form action={`/recherche?q=${encodeURIComponent(searchInput)}`} className="w-full md:w-4/5 border  p-1 rounded bg-gray-200 my-3 ">
+      <form action={`/recherche?search=${encodeURIComponent(searchInput)}`} className="w-full md:w-4/5 border  p-1 rounded bg-gray-200 my-3 ">
         <div className="w-full flex justify-between items-center">
           <input
             name="search"
