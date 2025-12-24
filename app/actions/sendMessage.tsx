@@ -24,7 +24,7 @@ export async function sendMessage(previousState:unknown,formdata:FormData) {
     const validationResult = await MessageSchema.safeParseAsync({name,email,message})
     if(!validationResult.success){
         return {
-            error:validationResult.error.errors[0].message
+            error:validationResult.error.issues[0].message
         }
     }
 

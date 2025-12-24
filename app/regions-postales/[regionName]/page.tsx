@@ -1,171 +1,189 @@
-import codes  from "@/assets/codes"
-import { getRegionMetadata } from "@/assets/metadata"
-import { regionsDescription } from "@/assets/regionsDescription"
-import { ChevronRight } from "lucide-react"
-import type { Metadata } from 'next'
-import Image from "next/image"
+import { getRegions } from "@/app/actions/getRegions";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import {
+  MapPin,
+  ArrowLeft,
+  Hash,
+  Globe,
+  Map,
+  ChevronRight,
+  Users,
+  Navigation
+} from "lucide-react";
+import { getRegionPageSchemas, StructuredData } from "@/app/structured-data-schemas/data-schema";
+import { getAgence } from "@/app/actions/getAgence";
+import { getAgences } from "@/app/actions/getAgences";
+import { Agence } from "@/app/actions/getProvinces";
 
-import Link from "next/link"
-import Script from "next/script"
-
-
-
-export interface Region {
-    REGION_POSTALE:string,
-    PROVINCE:string,
-    AGENCE:string,
-    NOUVEAU_CODE_POSTAL:number
+export default async function RegionPage({params}: {params: Promise<{regionName: string}>}){
+  const regionName = decodeURIComponent((await params).regionName)
+  if(!regionName){
+    return notFound()
   }
-   
-  // Next.js will invalidate the cache when a
-  // request comes in, at most once every 60 seconds.
-   
-  // We&apos;ll prerender only the params from `generateStaticParams` at build time.
-  // If a request comes in for a path that hasn&apos;t been generated,
-  // Next.js will server-render the page on-demand.
-  export const dynamicParams = true // or false, to 404 on unknown paths
-
- 
-type Props = {
-  params: Promise<{ regionName: string }>
-}
-
-
- 
-
-export async function generateMetadata(
-  { params }: Props,
-): Promise<Metadata> {
-  // read route params
-  const regionName = (await params).regionName
- 
-
-  const meta = getRegionMetadata(regionName.toLowerCase().charAt(0).toUpperCase()+regionName.slice(1))
-  return {
-    title:meta?.title,
-    description:`${meta?.description} - Code Postal Maroc | ${regionName}`,
-    
-  }
-}
-   
-  export async function generateStaticParams() {
-
-    return codes.map((region:Region) => ({
-      regionName: region.REGION_POSTALE.toLowerCase().trim(),
-    }))
-  }
-   
-  export default async function Page({ params }: { params: Promise<{ regionName: string }> }) {
-
-    //state 
-    const {regionName} = await params
-    const firstLetterCapitalized = regionName?.charAt(0).toUpperCase()+regionName.slice(1)
-    const regionsCodes: Region[] = codes.filter(
-      (reg: Region) => reg.REGION_POSTALE === regionName.toUpperCase()
-    )!
-    const provinces = regionsCodes.reduce((acc: Record<string, Region[]>, reg: Region) => {
-      if (acc[reg.PROVINCE]) {
-        acc[reg.PROVINCE].push(reg);
-      } else {
-        acc[reg.PROVINCE] = [reg];
-      }
-      return acc;
-    }, {} as Record<string, Region[]>);
-  if(!regionsCodes.length){
-    return (
-      <main className="flex min-h-screen flex-col items-center justify-start  ">
-        Aucune resulat correspond à votre recherche (:
-      </main>
-    )
-  }
-    // structured data 
-
-
-
-    const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "AdministrativeArea",
-      "name": regionName,
-      "addressRegion": regionName,
-      "containedIn": {
-        "@type": "Country",
-        "name": "Morocco",
-        "addressCountry": "MA"
-      },
-      "hasPostalCode": {
-        "@type": "PostalAddress",
-        "addressLocality": regionName,
-        "postalCode": regionsCodes[0].NOUVEAU_CODE_POSTAL
-      }
-    };
+  const sanitizedRegionName = regionName.replace(/-/g, " ").toUpperCase()
+  const regions = await getRegions()
   
-
-
-
-    return (
-     <>
-     
-    <Script
-     strategy="afterInteractive"
-    id="structured-data-regions"
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} 
-    />
-     
-     <main className="w-full flex min-h-screen flex-col items-center justify-start pt-10 md:px-10 ">
-     <Link className="my-10" href='https://mb38.com/lnk.asp?o=8338&c=168794&a=236088&k=014B31586853C1351A6F9BDA977BA9FD&l=7050'><Image alt="kiwi.com" src='https://maxbounty.com/resources/getimage.asp?a=236088&m=3589&o=8338&i=168794.dat' width={728} height={90} /></Link>
-
-        <h1 className="w-full text-left text-4xl font-bold">Liste des codes postaux de la region 
-          <span className=" mx-2">
-        {regionName?.toUpperCase() }
-        </span></h1>
-        <p className="my-6 indent-3 text-gray-700 tracking-wide leading-8">
-            {regionsDescription[firstLetterCapitalized as keyof typeof regionsDescription].description ?? ""}
-          </p>
-        <div className="w-full mt-12">
-          <h2 className="font-medium">Provinces de la region {regionName?.toUpperCase()}</h2>
-          <div className="flex flex-col justify-start items-start bg-gray-100 p-4 rounded border">
-            {Object.keys(provinces).map((province)=>{
-              return (
-                <div className="w-full flex justify-between items-start gap-4 p-1 border-b" key={province}>
-                  <div className="text-gray-700"> <Link className="hover:text-red-500 scroll-smooth" href={`#${province}`}>{province}</Link>:</div>
-                  <div className="text-red-500"> {provinces[province].length}</div>
-                 </div>
-              )
-            })}
-
+  if(!regions[sanitizedRegionName]){
+    return notFound()
+  }
+  
+  const region = regions[sanitizedRegionName]
+  
+  // Calculate total agencies
+  const totalAgencies = region.reduce((acc, province) => acc + province.agences.length, 0)
+  const regionAgences = region.reduce((acc, province) => {
+    acc.push(...province.agences)
+    return acc
+  }, [] as Agence[])
+  
+  return (
+    <div className="min-h-screen w-full bg-white">
+      <StructuredData data={getRegionPageSchemas(sanitizedRegionName,regionAgences,totalAgencies)} />
+      {/* Header */}
+      <header className="border-b border-gray-200 sticky top-0 z-10 backdrop-blur-sm bg-white/90">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <Link
+              href="/"
+              className="flex items-center text-gray-600 hover:text-red-500 transition-colors group"
+            >
+              <ArrowLeft className="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" />
+              Retour 
+            </Link>
+            <div className="px-3 py-1 bg-red-50 text-red-600 rounded-full text-sm font-medium">
+              {region.length} {region.length === 1 ? 'PROVINCE' : 'PROVINCES'}
+            </div>
           </div>
-         
         </div>
-        <div className="w-full flex-col gap-3">
-           {Object.keys(provinces).map((province,index)=>{
-            return (
-              <div  key={province+"-"+index} className="flex flex-col gap-3 ">
-                 
-               <h2 id={province} className="w-full flex  justify-start items-center text-2xl my-6 font-bold">
-               <ChevronRight/> <span>Province de:{" "} {province}</span>
-               </h2>
-              
-               { provinces[province].map((reg)=>{
-                return (
-                  <div className="w-full flex justify-between items-start gap-4 p-1 border-b" key={reg.NOUVEAU_CODE_POSTAL}>
-                  <Link href={`/agences/${reg.AGENCE.toLowerCase().replaceAll(" ","-")}`} className="hover:bg-red-500 hover:text-white w-full px-2 flex justify-between rounded items-center p-2  ">
-                  <span>
-                    {reg.AGENCE}
-                  </span>
-                  <span>
-                    {reg.NOUVEAU_CODE_POSTAL}
-                  </span>
-                  </Link>
-                   </div>
-                )
-               })}
-                               
+      </header>
+
+      <main className="w-full container mx-auto px-4 py-8">
+        {/* Region Header Card */}
+        <div className="max-w-6xl mx-auto mb-12">
+          <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-lg">
+            {/* Card Header */}
+            <div className="bg-linear-to-r from-gray-50 to-white border-b border-gray-200 p-6">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <div className="p-3 bg-red-500 rounded-xl mr-4">
+                    <Globe className="h-8 w-8 text-white" />
+                  </div>
+                  <div>
+                    <h1 className="text-3xl font-bold text-black">{sanitizedRegionName}</h1>
+                    <div className="flex items-center text-gray-600 mt-1">
+                      <Navigation className="h-4 w-4 mr-1" />
+                      <span>{region.length} {region.length === 1 ? 'province' : 'provinces'}</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="text-6xl font-black text-red-500 mb-1">{totalAgencies}</div>
+                  <div className="text-xs text-gray-500 uppercase tracking-wider">Agences</div>
+                </div>
               </div>
-            )})}
-          
+            </div>
+          </div>
+        </div>
+
+        {/* Provinces List */}
+        <div className="max-w-6xl mx-auto space-y-6">
+          {region.map((provinceData, index) => (
+            <div key={index} className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+              {/* Province Header */}
+              <div className="bg-linear-to-r from-slate-800 to-slate-700 px-6 py-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <div className="p-2 bg-white/10 rounded-lg mr-3">
+                      <Map className="h-5 w-5 text-white" />
+                    </div>
+                    <div>
+                      <h2 className="text-xl font-bold text-white">
+                        {provinceData.province}
+                      </h2>
+                      <p className="text-gray-300 text-sm mt-0.5">
+                        {provinceData.agences.length} {provinceData.agences.length === 1 ? 'agence' : 'agences'}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Agencies Grid */}
+              <div className="p-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {provinceData.agences.map((agence, agenceIndex) => (
+                    <Link
+                      key={agenceIndex}
+                      href={`/agences/${encodeURIComponent(agence.name.toLowerCase().replace(/\s+/g, '-'))}`}
+                      className="group"
+                    >
+                      <div className="bg-white border border-gray-200 rounded-xl p-5 hover:border-red-300 hover:shadow-md transition-all duration-300 h-full">
+                        <div className="flex items-start justify-between mb-3">
+                          <div className="flex-1">
+                            <h3 className="font-bold text-black group-hover:text-red-600 transition-colors line-clamp-1">
+                              {agence.name}
+                            </h3>
+                            <div className="flex items-center text-gray-500 text-sm mt-1">
+                              <MapPin className="h-3 w-3 mr-1" />
+                              <span className="truncate">{agence.province}</span>
+                            </div>
+                          </div>
+                          <div className="p-2 bg-gray-50 rounded-lg group-hover:bg-red-50 transition-colors">
+                            <Hash className="h-4 w-4 text-gray-500 group-hover:text-red-500" />
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
+                          <div>
+                            <div className="text-xs text-gray-500">Code Postal</div>
+                            <div className="text-xl font-black text-red-500">{agence.codePostal}</div>
+                          </div>
+                          <div className="flex items-center text-sm text-gray-500">
+                            <Globe className="h-3 w-3 mr-1" />
+                            <span className="truncate max-w-[100px]">{agence.region}</span>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center justify-end mt-4">
+                          <span className="text-xs text-red-500 font-medium flex items-center group-hover:translate-x-1 transition-transform">
+                            Voir détails
+                            <ChevronRight className="h-3 w-3 ml-1" />
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA Card */}
+        <div className="max-w-6xl mx-auto mt-12">
+          <div className="bg-linear-to-r from-gray-50 to-white border border-gray-200 rounded-2xl p-8">
+            <div className="text-center">
+                <h3 className="text-2xl font-bold text-black mb-3">
+                {"Besoin d'un autre code postal ?"  }
+
+              </h3>
+              <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+                {"Découvrez les agences postales dans toutes les régions du Maroc"}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+               
+                <Link
+                  href="/search"
+                  className="px-20 py-3 bg-red-500 border border-gray-300 text-white font-medium rounded-lg hover:bg-red-600 transition-colors"
+                >
+                  Rechercher 
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
-     </>
-    )
-  }
+    </div>
+  )
+}

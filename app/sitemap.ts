@@ -1,65 +1,54 @@
-import codes from '@/assets/codes'
 import type { MetadataRoute } from 'next'
-import { Region } from './regions-postales/[regionName]/page'
-import { provinces } from '@/assets/provinces'
-import { codePostaux } from '@/assets/codes_postaux'
-import { agences } from '@/assets/agences'
+import { getProvinces } from './actions/getProvinces'
+import { getRegions } from './actions/getRegions'
+import { getAgences } from './actions/getAgences'
+
 
  export const baseUrl ="https://codepostalmaroc.com"
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
-   
-    const localiteSearchResults= codes.map((localite:Region) => {
-      return  {
-        url: `${baseUrl}/recherche?search=${encodeURIComponent(localite.AGENCE.toLowerCase().trim())}`,
-        changeFrequency: 'yearly' as const,
-      priority:1
 
-      
-      }
-    })
-    const _agences =  Object.keys(agences).map((agence) => {
-        return {
-            url: `${baseUrl}/agences/${agence.toLowerCase().trim().replaceAll(" ","-")}`,
-           lastModified: new Date(),
-           changeFrequency: 'monthly' as const,
-           priority: 1,
-             }
-    });
 
-    const _codes =  Object.keys(codePostaux).map((code) => {
-        return {
-            url: `${baseUrl}/codes/${code}`,
-           lastModified: new Date(),
-           changeFrequency: 'monthly' as const,
-           priority: 1,
-             }
-    });
-    const _provinces =  Object.keys(provinces).map((province) => {
-        return {
-            url: `${baseUrl}/provinces/${province.toLowerCase().trim().replaceAll(" ","-")}`,
-           lastModified: new Date(),
-           changeFrequency: 'monthly' as const,
-           priority: 1,
-             }
-    });
 
-    const _regions =  codes.map((region:Region) =>{
-        return {
-            url: `${baseUrl}/regions/${region.REGION_POSTALE.toLowerCase().trim()}`,
-           lastModified: new Date(),
-           changeFrequency: 'monthly' as const,
-           priority: 1,
-             }
-    } )
+  const provinces = await getProvinces()
+  const _provinces =Object.keys(provinces).map((province)=>{
+    return {
+      url: `${baseUrl}/provinces-postales/${province.toLowerCase().trim().replaceAll(" ","-")}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 1,
+    }
+  })
+
+  // regions 
+  const regions = await getRegions()
+  const  _regions = Object.keys(regions).map((region)=>{
+    return {
+       url: `${baseUrl}/regions-postales/${region.toLowerCase().trim().replaceAll(" ","-")}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 1,
+    }
+  })
+
+  const agences = await getAgences()
+  const _agences = Object.keys(agences).map((agence)=>{
+    return {
+      url: `${baseUrl}/agences/${agence.toLowerCase().trim().replaceAll(" ","-")}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 1,
+    }
+  })
+
+  
     
   return [
-    ..._agences,
-    ..._codes,
     ..._provinces,
     ..._regions,
-    ...localiteSearchResults,
+    ..._agences,
+ 
     {
       url: `${baseUrl}`,
       lastModified: new Date(),
