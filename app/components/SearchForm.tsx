@@ -13,10 +13,11 @@ type AgenceCode = {
 
 interface SearchPageProps {
   codes: AgenceCode[]
+  q?: string | undefined
 }
 
-export default function SearchForm({ codes }: SearchPageProps) {
-  const [searchQuery, setSearchQuery] = useState('')
+export default function SearchForm({ codes, q }: SearchPageProps) {
+  const [searchQuery, setSearchQuery] = useState(q || '')
   const [isSearching, setIsSearching] = useState(false)
   
 

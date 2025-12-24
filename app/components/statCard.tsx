@@ -41,7 +41,7 @@ export function StatCard({
       <div className="relative flex items-center justify-between">
         <div>
           <p className="text-sm opacity-90 mb-1">{label}</p>
-          <p className="text-3xl font-bold">{value.toLocaleString()}</p>
+          <p className="text-3xl font-bold">{value.toString()}</p>
         </div>
         <div className={`${colors[color].iconBg} backdrop-blur-sm p-3 rounded-lg`}>
           {icon}
