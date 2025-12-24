@@ -1,4 +1,3 @@
-import SearchFormWrapper from "../SearchFormWrapper"
 import Logo from "./Logo"
 import Nav from "./Nav"
 
@@ -15,9 +14,7 @@ const Header = () => {
                  
                <Nav/>
               </div>
-              <div className=" w-full md:hidden">
-                <SearchFormWrapper/>
-              </div>
+             
              
               
              

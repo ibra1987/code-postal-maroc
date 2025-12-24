@@ -14,12 +14,7 @@ const Nav = () => {
             Accueil
           </Link>
         </li>
-        <li>
-          <Link className=" border-b border-b-transparent hover:border-b-gray-200 py-1" href="/regions-postales-maroc">
-            
-          régions Postales
-                    </Link>
-        </li>
+        
         <li>
           <Link className=" border-b border-b-transparent hover:border-b-gray-200 py-1" href="/contact">
             
@@ -39,12 +34,8 @@ const Nav = () => {
                     Accueil
                   </Link>
                 </li>
-                <li>
-                  <Link  onClick={()=>setShow(false)}  className=" border-b border-b-transparent hover:border-b-slate-200 py-2" href="/regions-postales-maroc">
-                    
-                  régions Postales
-                            </Link>
-                </li>
+              
+                
                 <li>
                   <Link  onClick={()=>setShow(false)} className=" border-b border-b-transparent hover:border-b-slate-200 py-2" href="/contact">
                     
