@@ -8,12 +8,9 @@ import {
   Globe,
   Map,
   ChevronRight,
-  Users,
   Navigation
 } from "lucide-react";
 import { getRegionPageSchemas, StructuredData } from "@/app/structured-data-schemas/data-schema";
-import { getAgence } from "@/app/actions/getAgence";
-import { getAgences } from "@/app/actions/getAgences";
 import { Agence } from "@/app/actions/getProvinces";
 
 export default async function RegionPage({params}: {params: Promise<{regionName: string}>}){
