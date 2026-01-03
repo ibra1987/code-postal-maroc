@@ -77,10 +77,10 @@ export default function RootLayout({
         {/**adsterra ad interstitial*/}
         
     
-        <div className="w-full  px-3 md:px-24 bg-slate-100/50 backdrop-blur-3xl   sticky top-0 z-50">
+        <div className="w-full  px-3 md:px-12 lg:px-24 bg-slate-100/50 backdrop-blur-3xl   sticky top-0 z-50">
         <Header/>
         </div>
-        <div className="  mx-auto px-3 md:px-24 flex flex-col justify-start items-center w-full   ">
+        <div className="  mx-auto px-3 md:px-12 lg:px-24 flex flex-col justify-start items-center w-full   ">
       
 
 
