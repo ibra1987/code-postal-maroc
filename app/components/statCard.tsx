@@ -28,7 +28,7 @@ export function StatCard({
   };
 
   return (
-    <div className={`relative overflow-hidden bg-gradient-to-br ${colors[color].gradient} text-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow`}>
+    <div className={`relative overflow-hidden bg-linear-to-br ${colors[color].gradient} text-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow`}>
       {/* Moroccan pattern overlay */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
