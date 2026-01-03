@@ -55,17 +55,9 @@ export default async function HomePage() {
   const totalCodes = new Set(agencesArray.map(a => a.codePostal)).size;
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-slate-50 via-white to-slate-100">
+    <div className="w-full min-h-screen bg-linear-to-br from-slate-50 via-white to-slate-100">
       <StructuredData data={getHomepageSchemas()} />
-
-      {/* Hero Section - Now with container wrapper */}
-      <div className="container mx-auto px-4 py-6 md:py-8">
-        <HeroSection totalAgences={totalAgences} regions={regions} />
-      </div>
-
-      {/* Stats Section */}
-      <section className="container mx-auto px-4 -mt-8 mb-12">
-        {/* Structured Data for SEO */}
+       {/* Structured Data for SEO */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -93,6 +85,15 @@ export default async function HomePage() {
             }),
           }}
         />
+
+      {/* Hero Section - Now with container wrapper */}
+      
+        <HeroSection totalAgences={totalAgences} regions={regions} />
+      
+
+      {/* Stats Section */}
+      <section className="container mx-auto px-2 -mt-8 mb-12">
+       
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <StatCard
             icon={<MapPin className="w-6 h-6" />}
@@ -116,13 +117,13 @@ export default async function HomePage() {
       </section>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 pb-16">
+      <main className=" mx-auto px-2 pb-16 ">
         {/* Regions Navigation */}
         <nav className="mb-12">
           <h2 className="text-2xl font-bold mb-6 text-gray-800">
             Parcourir par Région
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-3  lg:grid-cols-4 gap-3">
             {regions.map(region => (
               <Link
                 key={region}

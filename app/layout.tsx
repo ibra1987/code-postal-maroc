@@ -70,6 +70,7 @@ export default function RootLayout({
     <html lang="fr">
       <head>
         <link rel="canonical" href="https://www.codepostalmaroc.com" />
+         <GoogleAnalytics gaId="G-D0493NM11N"/>
       </head>
       <body
         className={`${inter.className} antialiased relative bg-slate-100`}
@@ -77,10 +78,10 @@ export default function RootLayout({
         {/**adsterra ad interstitial*/}
         
     
-        <div className="w-full  px-3 md:px-12 lg:px-24 bg-slate-100/50 backdrop-blur-3xl   sticky top-0 z-50">
+        <div className="w-full mx-auto px-2 md:px-12 lg:px-24 bg-slate-100/50 backdrop-blur-3xl   sticky top-0 z-50">
         <Header/>
         </div>
-        <div className="  mx-auto px-3 md:px-12 lg:px-24 flex flex-col justify-start items-center w-full   ">
+        <div className=" w-full mx-auto px-2 md:px-12 lg:px-24 flex flex-col justify-start items-center   ">
       
 
 
@@ -88,7 +89,7 @@ export default function RootLayout({
         <Analytics/>
         </div>
         <Footer/>
-      <GoogleAnalytics gaId="G-D0493NM11N"/>
+     
       </body>
     </html>
   );

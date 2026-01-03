@@ -17,9 +17,9 @@ export function ProvinceCard({
   const hasMore = agences.length > 6;
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+    <div className="w-full bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
       {/* Province Header */}
-      <div className="bg-gray-50 border-b border-gray-200 px-6 py-4">
+      <div className="bg-gray-50 border-b border-gray-200 px-2 py-4">
         <div className="flex items-center justify-between">
           <div>
             <h3 className="text-xl font-bold text-gray-800">{province}</h3>
@@ -29,7 +29,7 @@ export function ProvinceCard({
           </div>
           <Link
             href={`/provinces-postales/${slugify(province)}`}
-            className="text-white bg-black rounded-full border border-green-900 py-2 px-4 font-medium text-sm hover:underline"
+            className="text-white bg-black rounded-full border border-green-900 py-2 px-2 font-medium text-sm hover:underline"
           >
             Voir tout →
           </Link>
@@ -37,7 +37,7 @@ export function ProvinceCard({
       </div>
 
       {/* Agences Grid */}
-      <div className="p-6">
+      <div className="p-6 w-full">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {displayedAgences.map((agence) => (
             <AgenceCard key={agence.name} agence={agence} />

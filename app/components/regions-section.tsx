@@ -30,10 +30,10 @@ export function RegionSection({
       className="scroll-mt-8"
     >
       {/* Region Header - Fixed gradient syntax */}
-      <div className="bg-linear-to-r from-slate-900 to-slate-800 rounded-2xl p-6 mb-6 text-white border-l-4 border-red-600 shadow-lg hover:shadow-xl transition-shadow">
+      <div className="bg-linear-to-r from-slate-900 to-slate-800 rounded-2xl px-2 py-6 mb-6 text-white border-l-4 border-red-600 shadow-lg hover:shadow-xl transition-shadow">
         <div className="flex items-center justify-between gap-4">
           <div>
-            <h2 className="text-3xl font-bold mb-2 flex items-center gap-2">
+            <h2 className="text-xl md:text-3xl font-black mb-2 flex items-center gap-2">
               {region}
               <span className="text-red-500">→</span>
             </h2>
@@ -44,7 +44,7 @@ export function RegionSection({
           </div>
           <Link
             href={`/regions/${slugify(region)}`}
-            className="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition-all flex items-center gap-2 group"
+            className="bg-red-600 text-white text-sm md:text-base px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition-all flex items-center gap-2 group"
           >
             Voir la région
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -53,7 +53,7 @@ export function RegionSection({
       </div>
 
       {/* Provinces */}
-      <div className="space-y-6">
+      <div className="space-y-6 flex flex-col justify-center items-start">
         {provinces.map((province) => (
           <ProvinceCard
             key={province}

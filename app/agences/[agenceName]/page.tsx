@@ -10,7 +10,6 @@ import {
   Hash,
   Globe,
   Map,
-  Home,
   ChevronRight,
   Users,
   Compass,
@@ -54,8 +53,8 @@ if (!agenceResult.agence) {
     <div className="min-h-screen w-full bg-white">
       {/* Header */}
       <header className="border-b border-gray-200 sticky top-0 z-10 backdrop-blur-sm bg-white/90">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
+        <div className="container mx-auto  py-4">
+          <div className="flex  items-center justify-between">
             <Link
               href="/"
               className="flex items-center text-gray-600 hover:text-red-500 transition-colors group"
@@ -70,20 +69,20 @@ if (!agenceResult.agence) {
         </div>
       </header>
 
-      <main className="w-full container mx-auto px-4 py-8">
+      <main className="w-full  mx-auto px-4 py-8">
       
         {/* Main Agence Card */}
-        <div className="max-w-6xl mx-auto mb-12">
+        <div className=" mx-auto mb-12">
           <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-lg">
             {/* Card Header */}
             <div className="bg-linear-to-r from-gray-50 to-white border-b border-gray-200 p-6">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col items-center justify-between">
                 <div className="flex items-center">
                   <div className="p-3 bg-red-500 rounded-xl mr-4">
                     <Building2 className="h-8 w-8 text-white" />
                   </div>
                   <div>
-                    <h1 className="text-3xl font-bold text-black">{agenceResult.matchedName || agenceName}</h1>
+                    <h1 className="text-2xl md:text-3xl font-bold text-black">{agenceResult.matchedName || agenceName}</h1>
                     <div className="flex items-center text-gray-600 mt-1">
                       <MapPin className="h-4 w-4 mr-1" />
                       <span>{agenceData.province}</span>

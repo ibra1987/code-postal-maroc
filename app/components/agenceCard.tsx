@@ -9,11 +9,11 @@ export function AgenceCard({
   return (
     <Link
       href={`/agences/${slugify(agence.name)}`}
-      className="group block bg-white  border border-gray-200 hover:border-red-600 rounded-lg p-4 transition-all duration-200 hover:shadow-md"
+      className="group w-full block bg-white  border border-gray-200 hover:border-red-600 rounded-lg p-4 transition-all duration-200 hover:shadow-md"
     >
-      <div className="flex items-start justify-between gap-2">
+      <div className="w-full flex items-start justify-between gap-2">
         <div className="flex-1 min-w-0">
-          <h4 className="font-semibold text-gray-900 group-hover:text-red-600 transition truncate">
+          <h4 className="font-semibold text-gray-900 group-hover:text-red-600 transition flex-wrap">
             {agence.name}
           </h4>
           <p className="text-xs text-gray-500 mt-1">

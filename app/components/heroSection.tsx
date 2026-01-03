@@ -7,7 +7,7 @@ export function HeroSection({totalAgences, regions}: {totalAgences: number; regi
     <section className="w-full rounded-xl bg-slate-900 text-white py-12 md:py-24 px-4 md:px-10 relative overflow-hidden">
       {/* Red glow effect */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] lg:w-[800px] lg:h-[400px] bg-red-600/20 blur-[100px] rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-red-600/20 w-full blur-[100px] h-[400] rounded-full" />
       </div>
       
       <div className="mx-auto relative max-w-7xl">
