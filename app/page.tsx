@@ -9,6 +9,7 @@ import { ProvinceCard } from './components/provinceCard';
 import { getHomepageSchemas, StructuredData } from './structured-data-schemas/data-schema';
 import { RegionSection } from './components/regions-section';
 import { RegionSkeleton } from './components/regionSkeleton';
+import Image from 'next/image';
 
 
 // Types matching your data structure
@@ -145,9 +146,12 @@ export default async function HomePage() {
             ))}
           </div>
         </nav>
+          <Link href="https://temu.to/k/e2evg6evki8" className="my-6" target="_blank" rel="noopener noreferrer">
+                 <Image src="/images/1000coupontemu.png" className="rounded" alt="Temu" width={1500} height={784} />
+                </Link>
 
         {/* Regions List */}
-        <div className="space-y-12">
+        <div className="space-y-12 mt-6">
           {regions.map((region, index) => (
             <Suspense 
               key={region} 
