@@ -18,6 +18,69 @@ import {
 } from "lucide-react";
 import { getAgence } from "@/app/actions/getAgence";
 import Image from "next/image";
+import { Metadata } from "next";
+
+// meta data and description
+export async function generateMetadata({ params }: { params: Promise<{ agenceName: string }> }): Promise<Metadata> {
+  let agenceName = decodeURIComponent((await params).agenceName);
+  agenceName = agenceName.replace(/-/g, " ").toUpperCase();
+  
+  const agenceResult = await getAgence(agenceName);
+  
+  if (!agenceResult.agence) {
+    return {
+      title: 'Agence non trouvée',
+      description: 'Cette agence postale n\'existe pas dans notre base de données.',
+    };
+  }
+
+  const agenceData = agenceResult.agence;
+  const displayName = agenceResult.matchedName || agenceName;
+
+  return {
+    metadataBase: new URL('https://www.codepostalmaroc.com'),
+    title: `Code Postal ${displayName} ${agenceData.codePostal} - ${agenceData.province}`,
+    description: `✓ Code postal de ${displayName}: ${agenceData.codePostal}. Trouvez l'adresse complète, région ${agenceData.region}, province ${agenceData.province}. Information gratuite et à jour.`,
+    keywords: [
+      `code postal ${displayName.toLowerCase()}`,
+      `${displayName.toLowerCase()} code postal`,
+      `${agenceData.codePostal}`,
+      `code postal ${agenceData.province.toLowerCase()}`,
+      `agence postale ${displayName.toLowerCase()}`,
+      'code postal maroc',
+    ],
+    authors: [{ name: 'Code Postal Maroc' }],
+    creator: 'Code Postal Maroc',
+    publisher: 'Code Postal Maroc',
+    
+    // Open Graph for social sharing
+    openGraph: {
+      title: `Code Postal ${displayName}: ${agenceData.codePostal}`,
+      description: `Trouvez le code postal de ${displayName}, ${agenceData.province}. Information complète et gratuite.`,
+      url: `https://www.codepostalmaroc.com/agences/${encodeURIComponent((await params).agenceName)}`,
+      siteName: 'Code Postal Maroc',
+      locale: 'fr_MA',
+      type: 'website',
+    },
+    
+    // Twitter Card
+    twitter: {
+      card: 'summary',
+      title: `Code Postal ${displayName}: ${agenceData.codePostal}`,
+      description: `Information complète sur le code postal de ${displayName}`,
+    },
+    
+    // Robots
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
+    },
+  };
+}
 
 export default async function AgencePage({ params }: { params: Promise<{ agenceName: string }> }) {
   let agenceName = decodeURIComponent((await params).agenceName);
