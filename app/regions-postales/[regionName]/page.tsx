@@ -12,6 +12,91 @@ import {
 } from "lucide-react";
 import { getRegionPageSchemas, StructuredData } from "@/app/structured-data-schemas/data-schema";
 import { Agence } from "@/app/actions/getProvinces";
+import { Metadata } from "next";
+
+
+//meta data  
+
+export async function generateMetadata({ params }: { params: Promise<{ regionName: string }> }): Promise<Metadata> {
+  const regionName = decodeURIComponent((await params).regionName);
+  
+  if (!regionName) {
+    return {
+      title: 'Région non trouvée',
+      description: 'Cette région n\'existe pas dans notre base de données.',
+    };
+  }
+  
+  const sanitizedRegionName = regionName.replace(/-/g, " ").toUpperCase();
+  const regions = await getRegions();
+  
+  if (!regions[sanitizedRegionName]) {
+    return {
+      title: 'Région non trouvée',
+      description: 'Cette région n\'existe pas dans notre base de données.',
+    };
+  }
+  
+  const region = regions[sanitizedRegionName];
+  const totalAgencies = region.reduce((acc, province) => acc + province.agences.length, 0);
+  const provinceCount = region.length;
+  
+  // Get a sample of postal codes for the description
+  const sampleCodes = region
+    .slice(0, 2)
+    .flatMap(p => p.agences.slice(0, 2))
+    .map(a => a.codePostal)
+    .join(', ');
+
+  return {
+    metadataBase: new URL('https://www.codepostalmaroc.com'),
+    title: `Code Postal ${sanitizedRegionName} - ${totalAgencies} Agences, ${provinceCount} Provinces`,
+    description: `✓ Tous les codes postaux de ${sanitizedRegionName}: ${totalAgencies} agences dans ${provinceCount} provinces (${sampleCodes}...). Liste complète et gratuite des codes postaux par ville.`,
+    keywords: [
+      `code postal ${sanitizedRegionName.toLowerCase()}`,
+      `codes postaux ${sanitizedRegionName.toLowerCase()}`,
+      `agences postales ${sanitizedRegionName.toLowerCase()}`,
+      ...region.slice(0, 3).map(p => `code postal ${p.province.toLowerCase()}`),
+      'code postal maroc',
+      'agences postales maroc',
+    ],
+    authors: [{ name: 'Code Postal Maroc' }],
+    creator: 'Code Postal Maroc',
+    publisher: 'Code Postal Maroc',
+    
+    // Open Graph
+    openGraph: {
+      title: `Codes Postaux ${sanitizedRegionName} - ${totalAgencies} Agences`,
+      description: `Liste complète des ${totalAgencies} agences postales dans ${provinceCount} provinces de ${sanitizedRegionName}. Information gratuite et à jour.`,
+      url: `https://www.codepostalmaroc.com/regions/${encodeURIComponent(regionName)}`,
+      siteName: 'Code Postal Maroc',
+      locale: 'fr_MA',
+      type: 'website',
+    },
+    
+    // Twitter Card
+    twitter: {
+      card: 'summary',
+      title: `Codes Postaux ${sanitizedRegionName}`,
+      description: `${totalAgencies} agences dans ${provinceCount} provinces`,
+    },
+    
+    // Robots
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
+    },
+    
+    // Additional metadata
+    alternates: {
+      canonical: `https://www.codepostalmaroc.com/regions/${encodeURIComponent(regionName)}`,
+    },
+  };
+}
 
 export default async function RegionPage({params}: {params: Promise<{regionName: string}>}){
   const regionName = decodeURIComponent((await params).regionName)
