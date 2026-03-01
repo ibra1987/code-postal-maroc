@@ -153,9 +153,7 @@ if (!agenceResult.agence) {
                     </div>
                   </div>
                 </div>
-                <Link href="https://temu.to/k/e2evg6evki8" className="my-6" target="_blank" rel="noopener noreferrer">
-                 <Image src="/images/1000bundletemu.png" className="rounded" alt="Temu" width={1500} height={784} />
-                </Link>
+        
                   <div className="text-center">
                     <div className="text-6xl font-black text-red-500 mb-1">{agenceData.codePostal}</div>
                     <div className="text-xs text-gray-500 uppercase tracking-wider">Code Postal</div>

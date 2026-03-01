@@ -43,7 +43,7 @@ export function RegionSection({
             </p>
           </div>
           <Link
-            href={`/regions/${slugify(region)}`}
+            href={`/regions-postales/${slugify(region)}`}
             className="bg-red-600 text-white text-sm md:text-base px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition-all flex items-center gap-2 group"
           >
             Voir la région

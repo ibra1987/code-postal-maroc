@@ -53,7 +53,7 @@ export default async function HomePage() {
 
   const regions = Object.keys(agencesByRegion).sort();
   const totalAgences = agencesArray.length;
-  const totalCodes = new Set(agencesArray.map(a => a.codePostal)).size;
+  const totalProvinces = new Set(agencesArray.map(a => a.province)).size;
 
   return (
     <div className="w-full min-h-screen bg-linear-to-br from-slate-50 via-white to-slate-100">
@@ -110,8 +110,8 @@ export default async function HomePage() {
           />
           <StatCard
             icon={<Mail className="w-6 h-6" />}
-            label="Codes Postaux"
-            value={totalCodes}
+            label="Provinces Postales Couvertes"
+            value={totalProvinces}
             color="gray"
           />
         </div>
@@ -146,9 +146,7 @@ export default async function HomePage() {
             ))}
           </div>
         </nav>
-          <Link href="https://temu.to/k/e2evg6evki8" className="my-6" target="_blank" rel="noopener noreferrer">
-                 <Image src="/images/1000coupontemu.png" className="rounded" alt="Temu" width={1500} height={784} />
-                </Link>
+         
 
         {/* Regions List */}
         <div className="space-y-12 mt-6">
