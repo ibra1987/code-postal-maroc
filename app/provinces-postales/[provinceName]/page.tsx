@@ -20,6 +20,7 @@ import {
   BarChart3
 } from "lucide-react";
 import { getProvincePageSchemas, StructuredData } from "@/app/structured-data-schemas/data-schema";
+import AdUnit from "@/app/components/Adsence";
 
 export default async function ProvincePage({ params }: { params: Promise<{ provinceName: string }> }) {
   const provinceName = decodeURIComponent((await params).provinceName);
@@ -44,8 +45,10 @@ export default async function ProvincePage({ params }: { params: Promise<{ provi
   return (
     <div className="min-h-screen bg-white">
       <StructuredData data={getProvincePageSchemas(provinceName,province.region,sortedAgences)} />
+      <AdUnit slot="1291486890" />
       {/* Header */}
-      <header className="border-b border-gray-200 sticky top-0 z-10 backdrop-blur-sm bg-white/95">
+    
+      <header className="border-b mt-10 border-gray-200 sticky top-0 z-10 backdrop-blur-sm bg-white/95">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link

@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
 import { Search, MapPin, Hash, Globe, Map, X, TrendingUp } from 'lucide-react'
+import AdUnit from './Adsence'
 
 type AgenceCode = {
   REGION_POSTALE: string
@@ -80,8 +81,9 @@ export default function SearchForm({ codes, q }: SearchPageProps) {
 
   return (
     <div className="min-h-screen w-full bg-white">
+      <AdUnit slot="1291486890" />
       {/* Header */}
-      <header className="border-b border-gray-200 sticky top-0 z-10 backdrop-blur-sm bg-white/90">
+      <header className="border-b mt-10 border-gray-200 sticky top-0 z-10 backdrop-blur-sm bg-white/90">
         <div className="container mx-auto px-4 py-4">
           <Link
             href="/"

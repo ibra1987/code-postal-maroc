@@ -19,6 +19,7 @@ import {
 import { getAgence } from "@/app/actions/getAgence";
 import Image from "next/image";
 import { Metadata } from "next";
+import AdUnit from "@/app/components/Adsence";
 
 // meta data and description
 export async function generateMetadata({ params }: { params: Promise<{ agenceName: string }> }): Promise<Metadata> {
@@ -115,8 +116,9 @@ if (!agenceResult.agence) {
 
   return (
     <div className="min-h-screen w-full bg-white">
+      <AdUnit slot="1291486890" />
       {/* Header */}
-      <header className="border-b border-gray-200 sticky top-0 z-10 backdrop-blur-sm bg-white/90">
+      <header className="border-b mt-10 border-gray-200 sticky top-0 z-10 backdrop-blur-sm bg-white/90">
         <div className="container mx-auto  py-4">
           <div className="flex  items-center justify-between">
             <Link

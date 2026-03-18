@@ -5,6 +5,7 @@ import {GoogleAnalytics} from "@next/third-parties/google"
 import { Analytics } from "@vercel/analytics/react"
 import { Metadata } from "next";
 import { Inter } from "next/font/google"
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -69,6 +70,9 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
+        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8402123668861669"
+     crossOrigin="anonymous"           strategy="afterInteractive" // ← critical for SSR
+/>
         <link rel="canonical" href="https://www.codepostalmaroc.com" />
          <GoogleAnalytics gaId="G-D0493NM11N"/>
       </head>

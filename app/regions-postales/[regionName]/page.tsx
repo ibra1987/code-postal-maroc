@@ -13,6 +13,7 @@ import {
 import { getRegionPageSchemas, StructuredData } from "@/app/structured-data-schemas/data-schema";
 import { Agence } from "@/app/actions/getProvinces";
 import { Metadata } from "next";
+import AdUnit from "@/app/components/Adsence";
 
 
 //meta data  
@@ -122,8 +123,9 @@ export default async function RegionPage({params}: {params: Promise<{regionName:
   return (
     <div className="min-h-screen w-full bg-white">
       <StructuredData data={getRegionPageSchemas(sanitizedRegionName,regionAgences,totalAgencies)} />
+     <AdUnit slot="1291486890"/>
       {/* Header */}
-      <header className="border-b border-gray-200 sticky top-0 z-10 backdrop-blur-sm bg-white/90">
+      <header className="border-b  mt-10s border-gray-200 sticky top-0 z-10 backdrop-blur-sm bg-white/90">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link
@@ -223,7 +225,7 @@ export default async function RegionPage({params}: {params: Promise<{regionName:
                           </div>
                           <div className="flex items-center text-sm text-gray-500">
                             <Globe className="h-3 w-3 mr-1" />
-                            <span className="truncate max-w-[100px]">{agence.region}</span>
+                            <span className="truncate max-w-[100]">{agence.region}</span>
                           </div>
                         </div>
                         
